@@ -1,16 +1,16 @@
+import { Wraper } from './Wraper/Wraper.styled';
+import { Header } from './Header/Header';
+import { Section } from './Section/Section';
+import Button from './Button/Button';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Wraper>
+      <Header></Header>
+      <Section>
+        <h1>Hello World</h1>
+        <Button textValue="Test Now" colorType="button--blue" />
+      </Section>
+    </Wraper>
   );
 };

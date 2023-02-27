@@ -1,0 +1,12 @@
+.Header__menu {
+  display: flex;
+  justify-content: space-between;
+}
+.Menu__body {
+  display: flex;
+  gap: 20px;
+}
+.Button__list {
+  display: flex;
+  gap: 20px;
+}

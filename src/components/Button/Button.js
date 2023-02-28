@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import css from 'components/Button/Button.module.css';
 import PropTypes from 'prop-types';
 import { Modal } from 'components/Modal/Modal';
+import { ButtonStyle } from './Button.styled';
 
-const Button = ({ textValue, colorType }) => {
+const Button = ({ colorType, children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleModal = () => {
@@ -11,13 +12,13 @@ const Button = ({ textValue, colorType }) => {
   };
   return (
     <>
-      <button
+      <ButtonStyle
         type="button"
         className={css.Button + ' ' + css[colorType]}
         onClick={handleModal}
       >
-        {textValue}
-      </button>
+        {children}
+      </ButtonStyle>
       {isOpen && <Modal onClose={handleModal} />}
     </>
   );
@@ -26,7 +27,7 @@ const Button = ({ textValue, colorType }) => {
 export default Button;
 
 Button.propTypes = {
-  textValue: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
   colorType: PropTypes.string.isRequired,
 };
 

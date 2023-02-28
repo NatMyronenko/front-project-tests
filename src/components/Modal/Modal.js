@@ -3,6 +3,7 @@ import { createRef } from 'react';
 import { createPortal } from 'react-dom';
 import css from './Modal.module.css';
 import { LoginForm } from '../LoginForm/LoginForm';
+import { NavLink } from 'react-router-dom';
 
 const MODAL_ROOT = document.querySelector('#modal-root');
 
@@ -31,12 +32,12 @@ export const Modal = ({ onClose }) => {
     <div ref={modalRef} onClick={handleBackdropClick} className={css.Overlay}>
       <div className={css.Login}>
         <div class="actions">
-          <a href="" class="">
+          <NavLink to="" className="">
             Login
-          </a>
-          <a href="" class="">
+          </NavLink>
+          <NavLink to="" className="">
             Register
-          </a>
+          </NavLink>
         </div>
 
         <LoginForm />

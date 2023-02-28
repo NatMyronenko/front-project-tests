@@ -18,8 +18,8 @@ export const Header = () => {
           <nav className={css.Menu__body}>
             <Menu />
             <div className={css.Button__list}>
-              <Button textValue="Log in" colorType="button--white" />
-              <Button textValue="Register" colorType="button--blue" />
+              <Button colorType="button--white">Log in</Button>
+              <Button colorType="button--blue">Register</Button>
             </div>
 
             {/* <button type="button" class="menu__icon icon-menu">

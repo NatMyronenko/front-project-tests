@@ -1,0 +1,18 @@
+.Login_Form {
+  display: grid;
+  gap: 15px 0;
+}
+
+.Input {
+  width: 100%;
+  padding: 0.625rem 0;
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 1.875rem;
+  border: none;
+  border-bottom: 0.0625rem solid #fff;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}

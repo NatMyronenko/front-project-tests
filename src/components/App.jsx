@@ -9,7 +9,7 @@ export const App = () => {
       <Header></Header>
       <Section>
         <h1>Hello World</h1>
-        <Button textValue="Test Now" colorType="button--blue" />
+        <Button colorType="button--blue">Test Now</Button>
       </Section>
     </Wraper>
   );

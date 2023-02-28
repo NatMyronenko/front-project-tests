@@ -1,12 +1,11 @@
 import Button from 'components/Button/Button';
 import React from 'react';
 import css from './LoginForm.module.css';
-import { ButtonStyle } from '../Button/Button.styled';
 
 export const LoginForm = () => {
   return (
     <form id="form-login" className={css.Login_Form}>
-      <div class="user-box">
+      <div className="user-box">
         <input
           type="email"
           required
@@ -17,7 +16,7 @@ export const LoginForm = () => {
         />
         <div className="email-error"></div>
       </div>
-      <div class="user-box">
+      <div className="user-box">
         <input
           type="password"
           name="userPassword"
@@ -42,7 +41,9 @@ export const LoginForm = () => {
         </label>
       </div>*/}
 
-      <ButtonStyle type="submit">Log In</ButtonStyle>
+      <Button type="submit" colorType="button--blue">
+        Log In
+      </Button>
 
       {/*<button type="submit" className={css.Login_Button}>
         Login

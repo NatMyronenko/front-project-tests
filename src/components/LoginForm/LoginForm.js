@@ -1,30 +1,30 @@
-import Button from 'components/Button/Button';
+import { Button } from 'components';
 import React from 'react';
 import css from './LoginForm.module.css';
 
 export const LoginForm = () => {
   return (
     <form id="form-login" className={css.Login_Form}>
-      <div className="user-box">
+      <div className={css.User_Box}>
         <input
           type="email"
           required
           name="userEmail"
           id="user-email"
           className={css.Input}
-          placeholder="E-mail"
         />
+        <label>E-mail</label>
         <div className={css.Form_Error}></div>
       </div>
-      <div className="user-box">
+      <div className={css.User_Box}>
         <input
           type="password"
           name="userPassword"
           required
-          id="user-surname"
+          id="user-password"
           className={css.Input}
-          placeholder="Password"
         />
+        <label>Password</label>
         <div className={css.Form_Error}></div>
       </div>
 

@@ -1,6 +1,7 @@
 .Login_Form {
-  display: grid;
-  gap: 15px 0;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .Input {
@@ -8,7 +9,7 @@
   padding: 0.625rem 0;
   font-size: 1rem;
   color: #fff;
-  margin-bottom: 1.875rem;
+  margin-bottom: 2rem;
   border: none;
   border-bottom: 0.0625rem solid #fff;
   outline: none;
@@ -17,8 +18,29 @@
   transition: all 0.3s ease 0s;
 }
 
+.Input:focus ~ label,
+.Input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #034ff4;
+  font-size: 12px;
+}
+
+.User_Box {
+  position: relative;
+}
+.User_Box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
 .Form_Error {
-  border: 1px solid #ff0000;
   font-size: 0.875rem;
   color: #ff0000;
 }

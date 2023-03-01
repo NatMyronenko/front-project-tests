@@ -32,7 +32,7 @@ export const SignUpForm = () => {
           type="password"
           name="userPassword"
           required
-          id="user-surname"
+          id="user-password"
           className={css.Input}
         />
         <label>Password</label>
@@ -41,7 +41,7 @@ export const SignUpForm = () => {
       </div>
 
       <div className={css.Checkbox}>
-        <input id="c_1" type="checkbox" value="1" name="" />
+        <input id="c_1" type="checkbox" name="userAgreed" value="1" name="" />
         <label htmlFor="c_1">
           <span className={css.Checkbox_Text}>I agree to the terms</span>
         </label>

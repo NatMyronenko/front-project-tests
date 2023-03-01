@@ -25,7 +25,6 @@
 
 .Button:hover.button--blue {
   background-color: #acacfb;
-  color: #0000ff;
   transform: translate(0px, 2px);
 }
 

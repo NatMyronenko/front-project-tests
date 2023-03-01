@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { createRef } from 'react';
 import { createPortal } from 'react-dom';
 import css from './Modal.module.css';
-import { LoginForm } from '../LoginForm/LoginForm';
+//import { LoginForm } from '../LoginForm/LoginForm';
 import { NavLink } from 'react-router-dom';
+import { SignUpForm } from '../SignUpForm/SignUpForm';
 
 const MODAL_ROOT = document.querySelector('#modal-root');
 
@@ -31,7 +32,7 @@ export const Modal = ({ onClose }) => {
   return createPortal(
     <div ref={modalRef} onClick={handleBackdropClick} className={css.Overlay}>
       <div className={css.Login}>
-        <div class="actions">
+        <div className="">
           <NavLink to="" className="">
             Login
           </NavLink>
@@ -40,7 +41,7 @@ export const Modal = ({ onClose }) => {
           </NavLink>
         </div>
 
-        <LoginForm />
+        <SignUpForm />
       </div>
     </div>,
     MODAL_ROOT

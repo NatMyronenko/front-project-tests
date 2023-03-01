@@ -8,7 +8,7 @@ import React from 'react';
 
 export const Header = () => {
   return (
-    <header>
+    <header className={css.Header}>
       <Container>
         <div className={css.Header__menu}>
           <LogoTitle>

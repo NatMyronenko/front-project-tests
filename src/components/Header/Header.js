@@ -1,8 +1,4 @@
-import Button from 'components/Button/Button';
-import { Container } from 'components/Container/Container.styled';
-import { FirstLetter } from 'components/Logo/First-letter.styled';
-import { LogoTitle } from 'components/Logo/LogoTitle.styled';
-import { Menu } from 'components/Menu/Menu';
+import { Button, Container, FirstLetter, LogoTitle, Menu } from 'components';
 import css from './Header.module.css';
 import React from 'react';
 
@@ -18,8 +14,12 @@ export const Header = () => {
           <nav className={css.Menu__body}>
             <Menu />
             <div className={css.Button__list}>
-              <Button colorType="button--white">Log in</Button>
-              <Button colorType="button--blue">Register</Button>
+              <Button colorType="button--white" formType="form-login">
+                Log in
+              </Button>
+              <Button colorType="button--blue" formType="form-signup">
+                Register
+              </Button>
             </div>
 
             {/* <button type="button" class="menu__icon icon-menu">

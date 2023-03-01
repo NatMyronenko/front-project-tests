@@ -1,7 +1,7 @@
 .SignUp_Form {
-  padding-top: 50px;
-  display: grid;
-  gap: 15px 0;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .Input {
@@ -9,7 +9,7 @@
   padding: 0.625rem 0;
   font-size: 1rem;
   color: #fff;
-  margin-bottom: 1.875rem;
+  margin-bottom: 2rem;
   border: none;
   border-bottom: 0.0625rem solid #fff;
   outline: none;
@@ -40,22 +40,19 @@
   transition: 0.5s;
 }
 
-.Input::placeholder {
-  color: #fff;
-}
-
-/*.Form_Error {
-  border: 1px solid #ff0000;
+.Form_Error {
   font-size: 0.875rem;
   color: #ff0000;
-}*/
+}
 
 .Checkbox > input,
 .Checkbox > label {
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .Checkbox_Text {
+  margin-left: 10px;
   font-style: italic;
   font-size: 1.2rem;
 }

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import css from 'components/Button/Button.module.css';
 import PropTypes from 'prop-types';
-import { Modal } from 'components/Modal/Modal';
-import { ButtonStyle } from './Button.styled';
+import { Modal, ButtonStyle } from 'components';
 
-const Button = ({ colorType, children }) => {
+export const Button = ({ colorType, formType, children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleModal = () => {
@@ -19,12 +18,10 @@ const Button = ({ colorType, children }) => {
       >
         {children}
       </ButtonStyle>
-      {isOpen && <Modal onClose={handleModal} />}
+      {isOpen && <Modal onClose={handleModal} formType={formType} />}
     </>
   );
 };
-
-export default Button;
 
 Button.propTypes = {
   children: PropTypes.string.isRequired,

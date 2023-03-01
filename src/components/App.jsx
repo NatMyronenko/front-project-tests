@@ -1,7 +1,4 @@
-import { Wraper } from './Wraper/Wraper.styled';
-import { Header } from './Header/Header';
-import { Section } from './Section/Section';
-import Button from './Button/Button';
+import { Wraper, Header, Section, Button } from 'components';
 
 export const App = () => {
   return (

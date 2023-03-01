@@ -11,7 +11,7 @@
   z-index: 1200;
 }
 
-.Login {
+.Modal {
   padding: 40px;
   background: rgb(141, 131, 131);
   box-sizing: border-box;
@@ -20,9 +20,9 @@
 }
 
 @media (min-width: 450px) {
-  .Login {
+  .Modal {
     margin: 0 auto;
-    width: 70%;
-    max-width: 800px;
+    width: 50%;
+    max-width: 500px;
   }
 }

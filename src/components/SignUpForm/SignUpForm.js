@@ -1,10 +1,10 @@
 import React from 'react';
 import css from './SignUpForm.module.css';
-import Button from 'components/Button/Button';
+import { Button } from 'components';
 
 export const SignUpForm = () => {
   return (
-    <form id="form-SignUp" className={css.SignUp_Form}>
+    <form id="form-signup" className={css.SignUp_Form}>
       <div className={css.User_Box}>
         <input
           type="text"
@@ -41,7 +41,7 @@ export const SignUpForm = () => {
       </div>
 
       <div className={css.Checkbox}>
-        <input id="c_1" type="checkbox" name="userAgreed" value="1" name="" />
+        <input id="c_1" type="checkbox" name="userAgreed" value="1" />
         <label htmlFor="c_1">
           <span className={css.Checkbox_Text}>I agree to the terms</span>
         </label>

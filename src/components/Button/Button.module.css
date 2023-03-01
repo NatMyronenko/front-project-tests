@@ -1,6 +1,6 @@
-.Button {
+/*.Button {
   padding: 8px 16px;
-  border-radius: 2px;
+  border-radius: 10px;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   display: inline-block;
@@ -15,14 +15,25 @@
   min-width: 180px;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}*/
+
+.Button:hover.button--white {
+  background-color: #b4b4f0;
+  color: #fff;
+  transform: translate(0px, 2px);
+}
+
+.Button:hover.button--blue {
+  background-color: #acacfb;
+  transform: translate(0px, 2px);
 }
 
 .button--white {
-  color: blue;
+  color: #0000ff;
   background-color: #fff;
 }
 
 .button--blue {
   color: #fff;
-  background-color: blue;
+  background-color: #0000ff;
 }

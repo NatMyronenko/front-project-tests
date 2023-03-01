@@ -1,6 +1,11 @@
+.Header {
+  padding: 10px 0;
+}
+
 .Header__menu {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .Menu__body {
   display: flex;

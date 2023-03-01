@@ -16,3 +16,9 @@
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
+
+.Form_Error {
+  border: 1px solid #ff0000;
+  font-size: 0.875rem;
+  color: #ff0000;
+}

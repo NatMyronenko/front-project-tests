@@ -14,7 +14,7 @@ export const LoginForm = () => {
           className={css.Input}
           placeholder="E-mail"
         />
-        <div className="email-error"></div>
+        <div className={css.Form_Error}></div>
       </div>
       <div className="user-box">
         <input
@@ -25,7 +25,7 @@ export const LoginForm = () => {
           className={css.Input}
           placeholder="Password"
         />
-        <div className="email-error"></div>
+        <div className={css.Form_Error}></div>
       </div>
 
       {/*<div class="checkbox">

@@ -1,13 +1,15 @@
-import { Wraper, Header, Section, Button } from 'components';
+import { Wraper } from 'components';
+import { Route, Routes } from 'react-router-dom';
+import { Home, SharedLayout } from 'pages';
 
 export const App = () => {
   return (
     <Wraper>
-      <Header></Header>
-      <Section>
-        <h1>Hello World</h1>
-        <Button colorType="button--blue">Test Now</Button>
-      </Section>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+        </Route>
+      </Routes>
     </Wraper>
   );
 };

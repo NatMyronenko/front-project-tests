@@ -1,19 +1,22 @@
 import React from 'react';
 import css from './SignUpForm.module.css';
 import { Button } from 'components';
+import { FaUserAstronaut } from 'react-icons/fa';
 
 export const SignUpForm = () => {
   return (
     <form id="form-signup" className={css.SignUp_Form}>
       <div className={css.User_Box}>
+        <FaUserAstronaut className={css.Form_icon} />
         <input
           type="text"
           required
           name="userName"
           id="user-name"
           className={css.Input}
+          placeholder="Username"
         />
-        <label>Username</label>
+
         <div className={css.Form_Error}></div>
       </div>
       <div className={css.User_Box}>
@@ -22,9 +25,10 @@ export const SignUpForm = () => {
           required
           name="userEmail"
           id="user-email"
+          placeholder="Email"
           className={css.Input}
         />
-        <label>E-mail</label>
+
         <div className={css.Form_Error}></div>
       </div>
       <div className={css.User_Box}>
@@ -33,9 +37,9 @@ export const SignUpForm = () => {
           name="userPassword"
           required
           id="user-password"
+          placeholder="Password"
           className={css.Input}
         />
-        <label>Password</label>
 
         <div className={css.Form_Error}></div>
       </div>

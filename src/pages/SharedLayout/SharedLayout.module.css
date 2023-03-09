@@ -5,6 +5,7 @@
 .Header__menu {
   display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap;
   align-items: center;
 }
 .Menu__body {

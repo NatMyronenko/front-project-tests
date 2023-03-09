@@ -1,7 +1,6 @@
 export * from './Button/Button';
 export * from './Button/Button.styled';
 export * from './Container/Container.styled';
-export * from './Header/Header';
 export * from './LoginForm/LoginForm';
 export * from './Logo/First-letter.styled';
 export * from './Logo/LogoTitle.styled';

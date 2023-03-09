@@ -1,0 +1,25 @@
+.Home_wrapper {
+  display: flex;
+  gap: 40px;
+}
+.Hero_title {
+  font-size: 40px;
+  line-height: 48px;
+
+  color: #111f42;
+}
+.Hero_title span {
+  color: #5c81e1;
+}
+.Title_wrapper {
+  /* border: 1px solid brown; */
+  /* flex: 0 0 50%; */
+  width: calc((100%-80px) / 2);
+  padding: 30px;
+}
+.Form_wrapper {
+  /* border: 1px solid brown; */
+  /* flex: 0 0 50%; */
+  width: calc((100%-80px) / 2);
+  padding: 0 30px;
+}

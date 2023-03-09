@@ -1,5 +1,13 @@
 @import-normalize; /* bring in normalize.css styles*/
 
+:root {
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-blue: #5c81e1;
+  --accent-color: #5ca1f0;
+  --size-icon: 16;
+}
+
 html {
   box-sizing: border-box;
   width: 100vw;

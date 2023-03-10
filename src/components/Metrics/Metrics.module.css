@@ -1,6 +1,9 @@
 .Metric_wrapper {
   display: flex;
-  justify-content: space-around;
+ justify-content: center;
+  gap: 70px;
+  margin: 0;
+  padding: 0;
 }
 
 .Metric_item {

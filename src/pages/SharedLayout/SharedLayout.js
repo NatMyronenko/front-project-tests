@@ -15,9 +15,7 @@ export const SharedLayout = () => {
             </LogoTitle>
 
             <nav className={css.Menu__body}>
-              {/* <button type="button" class="menu__icon icon-menu">
-              <span></span>
-            </button> */}
+              <button type="button">EN</button>
             </nav>
           </div>
         </Container>

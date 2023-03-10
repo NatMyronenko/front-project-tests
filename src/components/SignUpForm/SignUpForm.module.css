@@ -31,8 +31,8 @@
   top: 11px;
   left: 10px;
   color: #111f42;
-  /*fill: currentColor;
-  width: 20px;
+  fill: currentColor;
+ /* width: 20px;
   height: 20px;*/
   transition: all 0.3s ease-in;
 }

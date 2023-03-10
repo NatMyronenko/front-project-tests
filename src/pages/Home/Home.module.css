@@ -5,21 +5,57 @@
 .Hero_title {
   font-size: 40px;
   line-height: 48px;
-
+  margin-top: 0;
   color: #111f42;
 }
 .Hero_title span {
   color: #5c81e1;
 }
+
+.Hero_desr {
+  font-size: 18px;
+  margin-bottom: 60px;
+}
+
 .Title_wrapper {
   /* border: 1px solid brown; */
   /* flex: 0 0 50%; */
   width: calc((100%-80px) / 2);
   padding: 30px;
+  align-self: center;
 }
+
 .Form_wrapper {
   /* border: 1px solid brown; */
   /* flex: 0 0 50%; */
   width: calc((100%-80px) / 2);
   padding: 0 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .Home_wrapper {
+    gap: 0px;
+  }
+  .Title_wrapper {
+    padding: 30px 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Home_wrapper {
+    flex-direction: column;
+  }
+
+  .Title_wrapper {
+    font-size: 32px;
+    padding: 30px 10px;
+    width: auto;
+
+    text-align: center;
+  }
+
+  .Form_wrapper {
+    width: auto;
+    padding: 0;
+  }
 }

@@ -1,33 +1,42 @@
 import React from 'react';
 import css from './SignUpForm.module.css';
 import { Button } from 'components';
-import { FaUserAstronaut } from 'react-icons/fa';
+import { FaUserAstronaut, FaLock, FaRegEnvelope } from 'react-icons/fa';
 
 export const SignUpForm = () => {
   return (
     <form id="form-signup" className={css.SignUp_Form}>
       <div className={css.User_Box}>
-        <FaUserAstronaut className={css.Form_icon} />
         <input
           type="text"
-          required
-          name="userName"
+          name="username"
           id="user-name"
           className={css.Input}
-          placeholder="Username"
+          placeholder="First name"
         />
-
+        <FaUserAstronaut className={css.Form_icon} size={20} />
+        <div className={css.Form_Error}></div>
+      </div>
+      <div className={css.User_Box}>
+        <input
+          type="text"
+          name="userLastName"
+          id="user-name"
+          className={css.Input}
+          placeholder="Last name"
+        />
+        <FaUserAstronaut className={css.Form_icon} size={20} />
         <div className={css.Form_Error}></div>
       </div>
       <div className={css.User_Box}>
         <input
           type="email"
-          required
           name="userEmail"
           id="user-email"
           placeholder="Email"
           className={css.Input}
         />
+        <FaRegEnvelope className={css.Form_icon} size={20} />
 
         <div className={css.Form_Error}></div>
       </div>
@@ -35,12 +44,12 @@ export const SignUpForm = () => {
         <input
           type="password"
           name="userPassword"
-          required
           id="user-password"
           placeholder="Password"
           className={css.Input}
         />
 
+        <FaLock className={css.Form_icon} size={20} />
         <div className={css.Form_Error}></div>
       </div>
 
@@ -52,7 +61,7 @@ export const SignUpForm = () => {
       </div>
 
       <Button type="submit" colorType="button--blue">
-        Register
+        Sign Up
       </Button>
 
       {/*<button type="submit" className={css.Login_Button}>

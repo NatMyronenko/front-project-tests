@@ -1,7 +1,12 @@
+.User_Box {
+  position: relative;
+}
+
 .SignUp_Form {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 15px;
   background-color: #eaf0ff;
   padding: 70px;
 }
@@ -13,42 +18,37 @@
   color: rgba(0, 0, 0, 0.952);
   border-radius: 10px;
   background-color: #ffffff;
-  margin-bottom: 20px;
   border: none;
   padding-left: 40px;
+  margin-bottom: 20px;
   border-bottom: 0.0625rem solid #fff;
   outline: none;
-  cursor: pointer;
   transition: all 0.3s ease 0s;
 }
-/* .Input::placeholder {
-  padding-left: 40px;
-} */
 
-.Input:focus ~ label,
-.Input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #034ff4;
-  font-size: 12px;
-}
-
-.User_Box {
-  position: relative;
-}
 .Form_icon {
   position: absolute;
   top: 11px;
   left: 10px;
   color: #111f42;
   fill: currentColor;
-  width: 20px;
-  height: 20px;
-
+ /* width: 20px;
+  height: 20px;*/
   transition: all 0.3s ease-in;
 }
-.Input:focus .Form_icon {
+/* .Input::placeholder {
+  padding-left: 40px;
+} */
+
+/*.Input:focus ~ label,
+.Input:valid ~ label {
+  top: -20px;
+  left: 0;
   color: #034ff4;
+  font-size: 12px;
+}*/
+.Input:focus + svg {
+  color: var(--color-blue);
 }
 
 .Form_Error {
@@ -56,14 +56,29 @@
   color: #ff0000;
 }
 
+.Checkbox {
+  margin-left: 10px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
 .Checkbox > input,
 .Checkbox > label {
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
 .Checkbox_Text {
   margin-left: 10px;
-  font-style: italic;
   font-size: 1.2rem;
+}
+
+@media screen and (max-width: 767px) {
+  .SignUp_Form {
+    padding: 40px 15px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .SignUp_Form {
+    padding: 50px 50px;
+  }
 }

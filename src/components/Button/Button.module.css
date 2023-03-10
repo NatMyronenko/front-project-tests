@@ -18,22 +18,29 @@
 }*/
 
 .Button:hover.button--white {
-  background-color: #b4b4f0;
-  color: #fff;
+  background-color: var(--accent-color);
+  color: var(--color-white);
   transform: translate(0px, 2px);
 }
 
 .Button:hover.button--blue {
-  background-color: #acacfb;
-  transform: translate(0px, 2px);
+  background-color: var(--accent-color);
+  animation: pulse 1s;
+  box-shadow: 0 0 0 0.7em transparent;
 }
 
 .button--white {
-  color: #0000ff;
-  background-color: #fff;
+  color: var(--color-blue);
+  background-color: var(--color-white);
 }
 
 .button--blue {
-  color: #fff;
-  background-color: #5c81e1;
+  color: var(--color-white);
+  background-color: var(--color-blue);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--accent-color);
+  }
 }

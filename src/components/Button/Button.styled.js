@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const ButtonStyle = styled.button`
-  padding: 12px 0;
-  width: 160px;
-  border-radius: 10px;
+  padding: 16px 78px;
+  border-radius: 5px;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   display: inline-block;

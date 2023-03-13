@@ -10,7 +10,7 @@ export const Metrics = () => {
       </li>
       <li className={css.Metric_item}>
         <div className={css.Metric_count}>20+</div>
-        <div className={css.Metric_tag}>test</div>
+        <div className={css.Metric_tag}>tests</div>
       </li>
       <li className={css.Metric_item}>
         <div className={css.Metric_count}>175+</div>

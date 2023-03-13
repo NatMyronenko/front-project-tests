@@ -1,27 +1,32 @@
 .Home_wrapper {
+  margin: 20px auto 90px;
   display: flex;
-  gap: 40px;
+  /*gap: 40px;*/
+  max-width: 1040px;
+  position: relative;
 }
 .Hero_title {
   font-size: 40px;
   line-height: 48px;
   margin-top: 0;
   color: #111f42;
+  margin-bottom: 35px;
 }
 .Hero_title span {
-  color: #5c81e1;
+  color: var(--color-blue);
 }
 
 .Hero_desr {
-  font-size: 18px;
-  margin-bottom: 60px;
+  font-size: 16px;
+  line-height: 137%;
+  max-width: 480px;
+  color: var(--color-black);
 }
 
 .Title_wrapper {
   /* border: 1px solid brown; */
   /* flex: 0 0 50%; */
   width: calc((100%-80px) / 2);
-  padding: 30px;
   align-self: center;
 }
 
@@ -29,33 +34,61 @@
   /* border: 1px solid brown; */
   /* flex: 0 0 50%; */
   width: calc((100%-80px) / 2);
-  padding: 0 30px;
+  background: linear-gradient(138.68deg, #dce6ff 8.7%, #ffffff 123.75%);
+  border-radius: 5px;
+  text-align: center;
+  padding: 25px 60px 40px;
 }
 
-@media screen and (min-width: 768px) {
-  .Home_wrapper {
-    gap: 0px;
-  }
-  .Title_wrapper {
-    padding: 30px 10px;
-  }
+.Forgot_pass {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 137%;
+  text-decoration-line: underline;
+  color: var(--color-darkblue);
+  margin-top: 32px;
+  margin-bottom: 35px;
+}
+.Create_acc {
+  line-height: 137%;
+  color: var(--color-darkblue);
+}
+.Create_desr {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 137%;
+
+  text-decoration-line: underline;
+
+  color: var(--color-darkblue);
 }
 
-@media screen and (max-width: 767px) {
-  .Home_wrapper {
-    flex-direction: column;
-  }
+.Elipse1 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #e0b346;
 
-  .Title_wrapper {
-    font-size: 32px;
-    padding: 30px 10px;
-    width: auto;
-
-    text-align: center;
-  }
-
-  .Form_wrapper {
-    width: auto;
-    padding: 0;
-  }
+  top: 47px;
+  left: 390px;
+}
+.Elipse2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #51e05b;
+  bottom: 69px;
+  left: 95px;
+}
+.Elipse3 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #e0729b;
+  bottom: -58px;
+  right: 80px;
 }

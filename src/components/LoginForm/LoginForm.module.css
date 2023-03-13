@@ -1,35 +1,33 @@
-.Login_Form {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .Input {
+  font-family: 'Lato';
   width: 100%;
-  padding: 0.625rem 0;
-  font-size: 1rem;
-  color: #fff;
-  margin-bottom: 2rem;
+  font-size: 20px;
+  line-height: 24px;
   border: none;
-  border-bottom: 0.0625rem solid #fff;
-  outline: none;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
+  color: #bcbcbc;
+  background: #ffffff;
+  padding: 15px 35px;
+  box-shadow: inset 1px 1px 1px rgba(92, 129, 225, 0.32);
+  border-radius: 5px;
+}
+.Input::placeholder {
+  font-size: 20px;
+  line-height: 24px;
+  color: #bcbcbc;
 }
 
-.Input:focus ~ label,
-.Input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #034ff4;
-  font-size: 12px;
+.Password_icon {
+  position: absolute;
+  color: #bcbcbc;
+  top: 12px;
+  right: 15px;
 }
 
 .User_Box {
   position: relative;
+  margin-bottom: 20px;
 }
-.User_Box label {
+/*.User_Box label {
   position: absolute;
   top: 0;
   left: 0;
@@ -38,6 +36,17 @@
   color: #fff;
   pointer-events: none;
   transition: 0.5s;
+}*/
+.Checkbox_login {
+  margin-bottom: 20px;
+}
+
+.Checkbox_text {
+  font-family: 'Lato';
+  font-size: 14px;
+  line-height: 17px;
+
+  color: var(--color-darkblue);
 }
 
 .Form_Error {

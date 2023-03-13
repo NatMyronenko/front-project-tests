@@ -8,7 +8,7 @@
   margin-right: auto;
   border-radius: 15px;
   background-color: #eaf0ff;
-  padding: 70px;
+  padding: 25px 60px 40px;
 }
 
 .Input {
@@ -32,7 +32,7 @@
   left: 10px;
   color: #111f42;
   fill: currentColor;
- /* width: 20px;
+  /* width: 20px;
   height: 20px;*/
   transition: all 0.3s ease-in;
 }
@@ -74,11 +74,9 @@
 
 @media screen and (max-width: 767px) {
   .SignUp_Form {
-    padding: 40px 15px;
   }
 }
 @media screen and (min-width: 768px) {
   .SignUp_Form {
-    padding: 50px 50px;
   }
 }

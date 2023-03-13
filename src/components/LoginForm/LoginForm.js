@@ -1,6 +1,7 @@
 import { Button } from 'components';
 import React from 'react';
 import css from './LoginForm.module.css';
+import { AiOutlineEye } from 'react-icons/ai';
 
 export const LoginForm = () => {
   return (
@@ -8,12 +9,12 @@ export const LoginForm = () => {
       <div className={css.User_Box}>
         <input
           type="email"
-          required
           name="userEmail"
           id="user-email"
           className={css.Input}
+          placeholder="Enter your email here"
         />
-        <label>E-mail</label>
+
         <div className={css.Form_Error}></div>
       </div>
       <div className={css.User_Box}>
@@ -23,26 +24,27 @@ export const LoginForm = () => {
           required
           id="user-password"
           className={css.Input}
+          placeholder="Enter your password here"
         />
-        <label>Password</label>
+        <AiOutlineEye className={css.Password_icon} size={30} />
         <div className={css.Form_Error}></div>
       </div>
 
-      {/*<div class="checkbox">
+      <div className={css.Checkbox_login}>
         <input
           id="c_1"
-          className="checkbox__input"
+          className={css.Checkbox_input}
           type="checkbox"
           value="1"
           name=""
         />
-        <label for="c_1" class="checkbox__label">
-          <span class="checkbox__text">Remember Me</span>
+        <label htmlFor="c_1" className={css.Checkbox_label}>
+          <span className={css.Checkbox_text}>Remember Me</span>
         </label>
-      </div>*/}
+      </div>
 
       <Button type="submit" colorType="button--blue">
-        Log In
+        Sign in
       </Button>
 
       {/*<button type="submit" className={css.Login_Button}>

@@ -1,6 +1,7 @@
 @import-normalize; /* bring in normalize.css styles*/
 
 :root {
+  --color-darkblue: #111f42;
   --color-black: #000000;
   --color-white: #ffffff;
   --color-blue: #5c81e1;
@@ -22,10 +23,9 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  color: #212121;
-  background-color: #fafafa;
+  font-family: 'Lato', sans-serif;
+  color: var(--color-black);
+  background: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

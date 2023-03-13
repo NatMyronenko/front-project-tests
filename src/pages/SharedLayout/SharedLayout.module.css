@@ -1,5 +1,5 @@
 .Header {
-  padding: 10px 0;
+  padding: 30px 0;
 }
 
 .Header__menu {
@@ -15,4 +15,18 @@
 .Button__list {
   display: flex;
   gap: 20px;
+}
+
+.Header_button {
+  font-family: 'Lato';
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--color-black);
+
+  padding: 5px;
+  border: none;
+  outline: none;
+  background: #f4f7ff;
+  border-radius: 2px;
 }

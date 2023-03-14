@@ -10,6 +10,10 @@
   box-shadow: inset 1px 1px 1px rgba(92, 129, 225, 0.32);
   border-radius: 5px;
 }
+
+.Input:focus {
+  outline: 1px solid burlywood;
+}
 .Input::placeholder {
   font-size: 20px;
   line-height: 24px;
@@ -52,4 +56,28 @@
 .Form_Error {
   font-size: 0.875rem;
   color: #ff0000;
+}
+
+.Forgot_pass {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 137%;
+  text-decoration-line: underline;
+  color: var(--color-darkblue);
+  margin-top: 32px;
+  margin-bottom: 35px;
+}
+.Create_acc {
+  line-height: 137%;
+  color: var(--color-darkblue);
+}
+.Create_desr {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 137%;
+
+  text-decoration-line: underline;
+
+  color: var(--color-darkblue);
 }

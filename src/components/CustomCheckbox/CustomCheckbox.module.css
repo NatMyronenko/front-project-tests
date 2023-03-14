@@ -1,0 +1,46 @@
+.checkbox_label {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  line-height: 17px;
+  color: var(--color-darkblue);
+}
+
+.checkbox_input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox_checkmark {
+  display: inline-block;
+  width: 25px;
+  height: 27px;
+  background: var(--color-white);
+  box-shadow: inset 1px 1px 1px rgba(92, 129, 225, 0.32);
+  border-radius: 5px;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.3s ease 0s;
+}
+
+.checkbox_input:checked ~ .checkbox_checkmark:after {
+  content: '';
+  position: absolute;
+  display: block;
+  left: 8px;
+  top: 7px;
+
+  width: 11px;
+  height: 11px;
+  border: solid var(--color-darkblue);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.checkbox_input:focus ~ .checkbox_label {
+  outline: 2px solid blue;
+}

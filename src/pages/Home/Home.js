@@ -19,13 +19,6 @@ export const Home = () => {
 
         <div className={css.Form_wrapper}>
           <LoginForm />
-          <div className={css.Forgot_pass}>Forgot password?</div>
-          <div className={css.Create_acc}>
-            Don’t have an acount yet?
-            <span className={css.Create_desr}> Create your account here.</span>
-            <br />
-            It will take less than two minutes.
-          </div>
         </div>
         <div className={css.Elipse1}></div>
         <div className={css.Elipse2}></div>

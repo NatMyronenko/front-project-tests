@@ -49,7 +49,7 @@ export const LoginForm = () => {
         </div>
 
         <div className={css.Checkbox_login}>
-          <CustomCheckbox>Remember me</CustomCheckbox>
+          <CustomCheckbox id="checkbox">Remember me</CustomCheckbox>
         </div>
 
         <Button type="submit" colorType="button--blue" disabled={!isFormValid}>

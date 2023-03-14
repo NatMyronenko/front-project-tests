@@ -1,8 +1,13 @@
-import { Section, LoginForm, Metrics } from 'components';
-import React from 'react';
+import { Section, Metrics, SignUpForm, LoginForm } from 'components';
+import React, { useState } from 'react';
 import css from './Home.module.css';
 
 export const Home = () => {
+  const [isOnLogin, setIsOnLogin] = useState(false);
+
+  function handleOnLogin() {
+    setIsOnLogin(!isOnLogin);
+  }
   return (
     <Section>
       <div className={css.Home_wrapper}>
@@ -15,10 +20,18 @@ export const Home = () => {
             We made this platform so you can easily check how much you know and
             prepare for a successful job interview.
           </p>
+
+          <button
+            className={css.Demonstration}
+            type="button"
+            onClick={handleOnLogin}
+          >
+            click
+          </button>
         </div>
 
         <div className={css.Form_wrapper}>
-          <LoginForm />
+          {isOnLogin ? <LoginForm /> : <SignUpForm />}
         </div>
         <div className={css.Elipse1}></div>
         <div className={css.Elipse2}></div>

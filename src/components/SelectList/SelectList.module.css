@@ -1,0 +1,8 @@
+.SelectList {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  max-width: 750px;
+}

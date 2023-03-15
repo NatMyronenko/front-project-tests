@@ -1,5 +1,4 @@
 export * from './Button/Button';
-export * from './Button/Button.styled';
 export * from './Container/Container.styled';
 export * from './LoginForm/LoginForm';
 export * from './Logo/Logo';
@@ -10,3 +9,5 @@ export * from './SignUpForm/SignUpForm';
 export * from './Wraper/Wraper.styled';
 export * from './Metrics/Metrics';
 export * from './CustomCheckbox/CustomCheckbox';
+export * from './SelectList/SelectList';
+export * from './SelectItem/SelectItem';

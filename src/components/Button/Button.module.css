@@ -22,30 +22,30 @@
   pointer-events: none;
 }
 
-.Button:hover.button--white {
-  background-color: var(--accent-color);
-  color: var(--color-white);
-  transform: translate(0px, 2px);
-}
-
-.Button:hover.button--blue,
-.Button:focus.button--blue {
+.Button:hover .Button:focus {
   background-color: var(--accent-color);
   box-shadow: 3px 3px 4px rgba(137, 150, 183, 0.2);
   outline: none;
 }
 
-.Button:active.button--blue {
+.Button:active {
   background: var(--color-blue);
   box-shadow: inset 4px 4px 4px rgba(64, 93, 166, 0.6);
 }
 
-.button--white {
-  color: var(--color-blue);
-  background-color: var(--color-white);
-}
-
-.button--blue {
+.Button {
   color: var(--color-white);
   background-color: var(--color-blue);
+  padding: 16px 78px;
+  border-radius: 5px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  display: inline-block;
+  border: 0;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
 }

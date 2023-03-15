@@ -1,6 +1,6 @@
 import { Wraper } from 'components';
 import { Route, Routes } from 'react-router-dom';
-import { Home, SharedLayout } from 'pages';
+import { Home, SharedLayout, Welcome } from 'pages';
 
 export const App = () => {
   return (
@@ -8,7 +8,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
-          <Route path="welcome" element={<Home />} />
+          <Route path="welcome" element={<Welcome />} />
           <Route path="question" element={<Home />} />
         </Route>
 

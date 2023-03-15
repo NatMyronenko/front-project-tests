@@ -1,0 +1,37 @@
+.Select_topic {
+  padding: 12px 10px;
+  min-width: 166px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: #eaf0ff;
+  border-radius: 5px;
+  border-color: transparent;
+  font-family: 'Lato';
+
+  font-size: 27px;
+  line-height: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-darkblue);
+}
+.Select {
+  min-width: 166px;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  margin-bottom: 2px;
+  border: transparent;
+  border-radius: 5px;
+  background: #eaf0ff;
+  text-transform: capitalize;
+  color: var(--color-darkblue);
+}
+.Select ::placeholder {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.groupStyles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -56,7 +56,7 @@ export const LoginForm = ({ isOnLogin }) => {
           </CustomCheckbox>
         </div>
 
-        <Button type="submit" colorType="button--blue">
+        <Button type="submit" disabled={false}>
           Sign in
         </Button>
       </form>

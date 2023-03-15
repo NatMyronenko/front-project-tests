@@ -1,32 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import css from 'components/Button/Button.module.css';
 import PropTypes from 'prop-types';
-import { Modal, ButtonStyle } from 'components';
 
-export const Button = ({ colorType, formType, children, disabled }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleModal = () => {
-    setIsOpen(!isOpen);
-  };
+export const Button = ({ children, disabled }) => {
   return (
     <>
-      <ButtonStyle
+      <button
         type="button"
-        className={css.Button + ' ' + css[colorType]}
-        onClick={handleModal}
+        className={css.Button + ' ' + css['button--blue']}
         disabled={disabled}
       >
         {children}
-      </ButtonStyle>
-      {isOpen && <Modal onClose={handleModal} formType={formType} />}
+      </button>
     </>
   );
 };
 
 Button.propTypes = {
   children: PropTypes.string.isRequired,
-  colorType: PropTypes.string.isRequired,
+  disabled: PropTypes.bool.isRequired,
 };
 
 //const end = 20 && 'hello world';

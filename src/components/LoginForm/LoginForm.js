@@ -2,18 +2,18 @@ import { Button, CustomCheckbox } from 'components';
 import React, { useState } from 'react';
 import css from './LoginForm.module.css';
 import { AiOutlineEye } from 'react-icons/ai';
+import checkSvg from 'img/sprite.svg#icon-check';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  function handleEmailChange(event) {
-    setEmail(event.target.value);
-  }
+  const [isChecked, setIsChecked] = useState(false);
 
-  function handlePasswordChange(event) {
-    setPassword(event.target.value);
-  }
+  const handleCheck = () => setIsChecked(!isChecked);
+
+  const handleEmailChange = event => setEmail(event.target.value);
+  const handlePasswordChange = event => setPassword(event.target.value);
 
   const isFormValid = email && password;
 
@@ -49,7 +49,12 @@ export const LoginForm = () => {
         </div>
 
         <div className={css.Checkbox_login}>
-          <CustomCheckbox id="checkbox">Remember me</CustomCheckbox>
+          <CustomCheckbox id="checkbox" onChange={handleCheck}>
+            <svg width={20} height={20} className={css.Check_svg}>
+              <use src={checkSvg}></use>
+            </svg>
+            Remember me
+          </CustomCheckbox>
         </div>
 
         <Button type="submit" colorType="button--blue" disabled={!isFormValid}>

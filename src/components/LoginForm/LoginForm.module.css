@@ -43,6 +43,7 @@
 }*/
 .Checkbox_login {
   margin-bottom: 20px;
+  position: relative;
 }
 
 .Checkbox_text {
@@ -51,6 +52,14 @@
   line-height: 17px;
 
   color: var(--color-darkblue);
+}
+
+.Check_svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--color-darkblue);
+  fill: currentColor;
 }
 
 .Form_Error {

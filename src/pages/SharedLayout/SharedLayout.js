@@ -9,7 +9,7 @@ export const SharedLayout = () => {
       <header className={css.Header}>
         <Container>
           <div className={css.Header__menu}>
-            <Logo></Logo>
+            <Logo />
 
             <nav className={css.Menu__body}>
               <button className={css.Header_button} type="button">

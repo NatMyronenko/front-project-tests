@@ -8,7 +8,11 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
+          <Route path="welcome" element={<Home />} />
+          <Route path="question" element={<Home />} />
         </Route>
+
+        <Route path="*" element={<Home />} />
       </Routes>
     </Wraper>
   );

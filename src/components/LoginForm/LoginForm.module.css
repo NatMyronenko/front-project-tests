@@ -1,10 +1,21 @@
+.Form_wrapper {
+  /* border: 1px solid brown; */
+  /* flex: 0 0 50%; */
+  width: calc((100%-80px) / 2);
+  background: linear-gradient(138.68deg, #dce6ff 8.7%, #ffffff 123.75%);
+  border-radius: 5px;
+  text-align: center;
+  padding: 25px 60px 40px;
+  margin-top: 30px;
+}
+
 .Input {
   font-family: 'Lato';
   width: 100%;
   font-size: 20px;
   line-height: 24px;
   border: none;
-  color: #bcbcbc;
+  color: var(--color-darkblue);
   background: #ffffff;
   padding: 15px 35px;
   box-shadow: inset 1px 1px 1px rgba(92, 129, 225, 0.32);
@@ -54,14 +65,6 @@
   color: var(--color-darkblue);
 }
 
-.Check_svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: var(--color-darkblue);
-  fill: currentColor;
-}
-
 .Form_Error {
   font-size: 0.875rem;
   color: #ff0000;
@@ -87,6 +90,8 @@
   line-height: 137%;
 
   text-decoration-line: underline;
-
+  background-color: transparent;
+  border: 0;
   color: var(--color-darkblue);
+  cursor: pointer;
 }

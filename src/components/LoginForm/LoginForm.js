@@ -2,9 +2,9 @@ import { Button, CustomCheckbox } from 'components';
 import React, { useState } from 'react';
 import css from './LoginForm.module.css';
 import { AiOutlineEye } from 'react-icons/ai';
-import checkSvg from 'img/sprite.svg#icon-check';
+//import checkSvg from '../../img/sprite.svg'
 
-export const LoginForm = () => {
+export const LoginForm = ({ isOnLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,10 +15,8 @@ export const LoginForm = () => {
   const handleEmailChange = event => setEmail(event.target.value);
   const handlePasswordChange = event => setPassword(event.target.value);
 
-  const isFormValid = email && password;
-
   return (
-    <>
+    <div className={css.Form_wrapper}>
       <form id="form-login" className={css.Login_Form}>
         <div className={css.User_Box}>
           <input
@@ -49,26 +47,28 @@ export const LoginForm = () => {
         </div>
 
         <div className={css.Checkbox_login}>
-          <CustomCheckbox id="checkbox" onChange={handleCheck}>
-            <svg width={20} height={20} className={css.Check_svg}>
-              <use src={checkSvg}></use>
-            </svg>
+          <CustomCheckbox
+            id="checkbox"
+            onChange={handleCheck}
+            isChecked={isChecked}
+          >
             Remember me
           </CustomCheckbox>
         </div>
 
-        <Button type="submit" colorType="button--blue" disabled={!isFormValid}>
+        <Button type="submit" colorType="button--blue">
           Sign in
         </Button>
       </form>
-
       <div className={css.Forgot_pass}>Forgot password?</div>
       <div className={css.Create_acc}>
         Don’t have an acount yet?
-        <span className={css.Create_desr}> Create your account here.</span>
+        <button type="button" className={css.Create_desr} onClick={isOnLogin}>
+          Create your account here.
+        </button>
         <br />
         It will take less than two minutes.
-      </div>
-    </>
+      </div>{' '}
+    </div>
   );
 };

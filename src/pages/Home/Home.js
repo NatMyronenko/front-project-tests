@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import css from './Home.module.css';
 
 export const Home = () => {
-  const [isOnLogin, setIsOnLogin] = useState(false);
+  const [isOnLogin, setIsOnLogin] = useState(true);
 
   function handleOnLogin() {
     setIsOnLogin(!isOnLogin);
@@ -21,23 +21,22 @@ export const Home = () => {
             prepare for a successful job interview.
           </p>
 
-          <button
+          {/*<button
             className={css.Demonstration}
             type="button"
             onClick={handleOnLogin}
           >
             click
-          </button>
+          </button>*/}
         </div>
 
-        <div className={css.Form_wrapper}>
-          {isOnLogin ? <LoginForm /> : <SignUpForm />}
-        </div>
+        {isOnLogin ? <LoginForm isOnLogin={handleOnLogin} /> : <SignUpForm />}
+
         <div className={css.Elipse1}></div>
         <div className={css.Elipse2}></div>
         <div className={css.Elipse3}></div>
       </div>
-      <Metrics />
+      {isOnLogin ? <Metrics /> : null}
     </Section>
   );
 };

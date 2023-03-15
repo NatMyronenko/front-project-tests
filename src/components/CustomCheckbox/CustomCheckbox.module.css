@@ -28,6 +28,15 @@
   transition: all 0.3s ease 0s;
 }
 
+.Check_svg {
+  position: absolute;
+  top: 9px;
+  left: 6px;
+  color: var(--color-darkblue);
+  fill: transparent;
+  stroke: currentColor;
+  z-index: 5000;
+}
 .Checkbox_labeltext {
   max-width: 270px;
   line-height: 17px;
@@ -35,7 +44,7 @@
   text-align: left;
 }
 
-.Checkbox_input:checked ~ .Checkbox_checkmark:after {
+/*.Checkbox_input:checked ~ .Checkbox_checkmark:after {
   content: '';
   position: absolute;
   display: block;
@@ -47,7 +56,7 @@
   border: solid var(--color-darkblue);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
-}
+}*/
 .Checkbox_input:focus + span {
   outline: 1px solid burlywood;
 }

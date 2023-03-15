@@ -1,5 +1,5 @@
 .Home_wrapper {
-  margin: 20px auto 90px;
+  margin: 0px auto 90px;
   display: flex;
   /*gap: 40px;*/
   max-width: 1040px;
@@ -28,16 +28,6 @@
   /* flex: 0 0 50%; */
   width: calc((100%-80px) / 2);
   align-self: center;
-}
-
-.Form_wrapper {
-  /* border: 1px solid brown; */
-  /* flex: 0 0 50%; */
-  width: calc((100%-80px) / 2);
-  background: linear-gradient(138.68deg, #dce6ff 8.7%, #ffffff 123.75%);
-  border-radius: 5px;
-  text-align: center;
-  padding: 25px 60px 40px;
 }
 
 .Elipse1 {

@@ -3,7 +3,7 @@ import css from 'components/Button/Button.module.css';
 import PropTypes from 'prop-types';
 import { Modal, ButtonStyle } from 'components';
 
-export const Button = ({ colorType, formType, children }) => {
+export const Button = ({ colorType, formType, children, disabled }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleModal = () => {
@@ -15,6 +15,7 @@ export const Button = ({ colorType, formType, children }) => {
         type="button"
         className={css.Button + ' ' + css[colorType]}
         onClick={handleModal}
+        disabled={disabled}
       >
         {children}
       </ButtonStyle>

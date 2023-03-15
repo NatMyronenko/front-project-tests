@@ -1,53 +1,74 @@
-import { Button } from 'components';
-import React from 'react';
+import { Button, CustomCheckbox } from 'components';
+import React, { useState } from 'react';
 import css from './LoginForm.module.css';
+import { AiOutlineEye } from 'react-icons/ai';
+//import checkSvg from '../../img/sprite.svg'
 
-export const LoginForm = () => {
+export const LoginForm = ({ isOnLogin }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheck = () => setIsChecked(!isChecked);
+
+  const handleEmailChange = event => setEmail(event.target.value);
+  const handlePasswordChange = event => setPassword(event.target.value);
+
   return (
-    <form id="form-login" className={css.Login_Form}>
-      <div className={css.User_Box}>
-        <input
-          type="email"
-          required
-          name="userEmail"
-          id="user-email"
-          className={css.Input}
-        />
-        <label>E-mail</label>
-        <div className={css.Form_Error}></div>
-      </div>
-      <div className={css.User_Box}>
-        <input
-          type="password"
-          name="userPassword"
-          required
-          id="user-password"
-          className={css.Input}
-        />
-        <label>Password</label>
-        <div className={css.Form_Error}></div>
-      </div>
+    <div className={css.Form_wrapper}>
+      <form id="form-login" className={css.Login_Form}>
+        <div className={css.User_Box}>
+          <input
+            type="email"
+            value={email}
+            name="userEmail"
+            id="user-email"
+            className={css.Input}
+            placeholder="Enter your email here"
+            onChange={handleEmailChange}
+          />
 
-      {/*<div class="checkbox">
-        <input
-          id="c_1"
-          className="checkbox__input"
-          type="checkbox"
-          value="1"
-          name=""
-        />
-        <label for="c_1" class="checkbox__label">
-          <span class="checkbox__text">Remember Me</span>
-        </label>
-      </div>*/}
+          <div className={css.Form_Error}></div>
+        </div>
+        <div className={css.User_Box}>
+          <input
+            type="password"
+            name="userPassword"
+            value={password}
+            required
+            id="user-password"
+            className={css.Input}
+            placeholder="Enter your password here"
+            onChange={handlePasswordChange}
+          />
+          <AiOutlineEye className={css.Password_icon} size={30} />
+          <div className={css.Form_Error}></div>
+        </div>
 
-      <Button type="submit" colorType="button--blue">
-        Log In
-      </Button>
+        <div className={css.Checkbox_login}>
+          <CustomCheckbox
+            id="checkbox"
+            onChange={handleCheck}
+            isChecked={isChecked}
+          >
+            Remember me
+          </CustomCheckbox>
+        </div>
 
-      {/*<button type="submit" className={css.Login_Button}>
-        Login
-      </button>*/}
-    </form>
+        <Button type="submit" colorType="button--blue">
+          Sign in
+        </Button>
+      </form>
+      <div className={css.Forgot_pass}>Forgot password?</div>
+      <div className={css.Create_acc}>
+        Don’t have an acount yet?
+        <button type="button" className={css.Create_desr} onClick={isOnLogin}>
+          Create your account here.
+        </button>
+        <br />
+        It will take less than two minutes.
+      </div>{' '}
+    </div>
   );
 };

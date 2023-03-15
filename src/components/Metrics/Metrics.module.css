@@ -1,49 +1,27 @@
 .Metric_wrapper {
   display: flex;
- justify-content: center;
-  gap: 70px;
-  margin: 0;
-  padding: 0;
+  justify-content: space-evenly;
+  list-style: none;
+  padding-left: 0;
 }
 
 .Metric_item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  min-width: 85px;
-  min-height: 85px;
-  border-radius: 50%;
-  background-color: var(--color-blue);
-  color: var(--color-white);
-  transition: all 0.3s ease 0s;
-  position: relative;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: var(--color-black);
 }
 
-.Metric_item::before {
-  content: '';
-  z-index: -1;
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background-color: rgb(0, 213, 255);
-  animation: pulse 2s infinite;
-  box-shadow: 0 0 0 0.3em transparent;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 var(--accent-color);
-  }
-}
-
-.Metric_item:hover {
-  background-color: var(--accent-color);
-}
 .Metric_count {
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 1;
+  font-weight: 600;
+  font-size: 45px;
+  line-height: 54px;
+
+  text-align: center;
+
+  background: linear-gradient(161.22deg, #5c81e1 12.69%, #ffffff 110.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
 }

@@ -17,16 +17,27 @@
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }*/
 
+.Button:disabled {
+  background: #c6d1ed;
+  pointer-events: none;
+}
+
 .Button:hover.button--white {
   background-color: var(--accent-color);
   color: var(--color-white);
   transform: translate(0px, 2px);
 }
 
-.Button:hover.button--blue {
+.Button:hover.button--blue,
+.Button:focus.button--blue {
   background-color: var(--accent-color);
-  animation: pulse 1s;
-  box-shadow: 0 0 0 0.7em transparent;
+  box-shadow: 3px 3px 4px rgba(137, 150, 183, 0.2);
+  outline: none;
+}
+
+.Button:active.button--blue {
+  background: var(--color-blue);
+  box-shadow: inset 4px 4px 4px rgba(64, 93, 166, 0.6);
 }
 
 .button--white {
@@ -37,10 +48,4 @@
 .button--blue {
   color: var(--color-white);
   background-color: var(--color-blue);
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 var(--accent-color);
-  }
 }

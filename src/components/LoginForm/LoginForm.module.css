@@ -1,35 +1,48 @@
-.Login_Form {
+.Form_wrapper {
+  /* border: 1px solid brown; */
+  /* flex: 0 0 50%; */
+  width: calc((100%-80px) / 2);
+  background: linear-gradient(138.68deg, #dce6ff 8.7%, #ffffff 123.75%);
+  border-radius: 5px;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 25px 60px 40px;
+  margin-top: 30px;
 }
 
 .Input {
+  font-family: 'Lato';
   width: 100%;
-  padding: 0.625rem 0;
-  font-size: 1rem;
-  color: #fff;
-  margin-bottom: 2rem;
+  font-size: 20px;
+  line-height: 24px;
   border: none;
-  border-bottom: 0.0625rem solid #fff;
-  outline: none;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
+  color: var(--color-darkblue);
+  background: #ffffff;
+  padding: 15px 35px;
+  box-shadow: inset 1px 1px 1px rgba(92, 129, 225, 0.32);
+  border-radius: 5px;
 }
 
-.Input:focus ~ label,
-.Input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #034ff4;
-  font-size: 12px;
+.Input:focus {
+  outline: 1px solid burlywood;
+}
+.Input::placeholder {
+  font-size: 20px;
+  line-height: 24px;
+  color: #bcbcbc;
+}
+
+.Password_icon {
+  position: absolute;
+  color: #bcbcbc;
+  top: 12px;
+  right: 15px;
 }
 
 .User_Box {
   position: relative;
+  margin-bottom: 20px;
 }
-.User_Box label {
+/*.User_Box label {
   position: absolute;
   top: 0;
   left: 0;
@@ -38,9 +51,47 @@
   color: #fff;
   pointer-events: none;
   transition: 0.5s;
+}*/
+.Checkbox_login {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.Checkbox_text {
+  font-family: 'Lato';
+  font-size: 14px;
+  line-height: 17px;
+
+  color: var(--color-darkblue);
 }
 
 .Form_Error {
   font-size: 0.875rem;
   color: #ff0000;
+}
+
+.Forgot_pass {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 137%;
+  text-decoration-line: underline;
+  color: var(--color-darkblue);
+  margin-top: 32px;
+  margin-bottom: 35px;
+}
+.Create_acc {
+  line-height: 137%;
+  color: var(--color-darkblue);
+}
+.Create_desr {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 137%;
+
+  text-decoration-line: underline;
+  background-color: transparent;
+  border: 0;
+  color: var(--color-darkblue);
+  cursor: pointer;
 }

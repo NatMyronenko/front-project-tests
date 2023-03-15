@@ -1,0 +1,62 @@
+.Checkbox_label {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  line-height: 17px;
+  color: var(--color-darkblue);
+}
+
+.Checkbox_input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.Checkbox_checkmark {
+  display: inline-block;
+  width: 25px;
+  height: 27px;
+  background: var(--color-white);
+  box-shadow: inset 1px 1px 1px rgba(92, 129, 225, 0.32);
+  border-radius: 5px;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.3s ease 0s;
+}
+
+.Check_svg {
+  position: absolute;
+  top: 9px;
+  left: 6px;
+  color: var(--color-darkblue);
+  fill: transparent;
+  stroke: currentColor;
+  z-index: 5000;
+}
+.Checkbox_labeltext {
+  max-width: 270px;
+  line-height: 17px;
+  color: var(--color-darkblue);
+  text-align: left;
+}
+
+/*.Checkbox_input:checked ~ .Checkbox_checkmark:after {
+  content: '';
+  position: absolute;
+  display: block;
+  left: 8px;
+  top: 7px;
+
+  width: 11px;
+  height: 11px;
+  border: solid var(--color-darkblue);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}*/
+.Checkbox_input:focus + span {
+  outline: 1px solid burlywood;
+}

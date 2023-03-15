@@ -1,5 +1,6 @@
 import React from 'react';
+import { QuestionList } from 'components';
 
 export const Questions = () => {
-  return <div>Questions</div>;
+  return <QuestionList />;
 };

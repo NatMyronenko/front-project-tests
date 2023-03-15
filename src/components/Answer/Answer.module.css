@@ -1,0 +1,20 @@
+.Answer {
+  display: flex;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  gap: 0 58px;
+  align-items: center;
+}
+
+.Answer_number {
+  font-size: 24px;
+  line-height: 29px;
+  color: var(--color-darkblue);
+  padding-left: 45px;
+}
+.Answer_text {
+  font-size: 23px;
+  line-height: 28px;
+  color: var(--color-darkblue);
+  padding: 8px 30px 10px 0;
+}

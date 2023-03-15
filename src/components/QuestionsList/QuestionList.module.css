@@ -1,0 +1,30 @@
+.Wrapper {
+  background-color: #eaa392;
+  display: flex;
+  flex-direction: column;
+  max-width: 596px;
+  margin: 0 auto;
+}
+.Score {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 96%;
+  color: var(--color-darkblue);
+  margin-bottom: 30px;
+}
+
+.Question_text {
+  font-size: 27px;
+  line-height: 96%;
+
+  color: var(--color-darkblue);
+}
+
+.Answer_text {
+  font-size: 23px;
+  line-height: 28px;
+  color: #111f42;
+}
+.btn {
+  align-self: center;
+}

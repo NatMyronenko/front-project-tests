@@ -2,7 +2,7 @@ export * from './Button/Button';
 export * from './Button/Button.styled';
 export * from './Container/Container.styled';
 export * from './LoginForm/LoginForm';
-export * from './Logo/Logo.styled';
+export * from './Logo/Logo';
 export * from './Menu/Menu';
 export * from './Modal/Modal';
 export * from './Section/Section';

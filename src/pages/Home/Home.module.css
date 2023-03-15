@@ -1,7 +1,8 @@
 .Home_wrapper {
   margin: 0px auto 90px;
   display: flex;
-  /*gap: 40px;*/
+  justify-content: center;
+  gap: 40px;
   max-width: 1040px;
   position: relative;
 }
@@ -24,8 +25,7 @@
 }
 
 .Title_wrapper {
-  /* border: 1px solid brown; */
-  /* flex: 0 0 50%; */
+  box-sizing: border-box;
   width: calc((100%-80px) / 2);
   align-self: center;
 }

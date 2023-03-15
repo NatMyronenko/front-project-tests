@@ -5,7 +5,7 @@ import css from './Logo.module.css';
 
 export const Logo = () => {
   return (
-    <Link>
+    <Link to="/">
       <svg width={40} height={40} className={css.Logo_svg}>
         <use href={LogoSvg + '#icon-logo'}></use>
       </svg>

@@ -5,6 +5,9 @@
   gap: 0 58px;
   align-items: center;
 }
+.Answer:not(:last-child) {
+  margin-bottom: 26px;
+}
 
 .Answer_number {
   font-size: 24px;
@@ -16,5 +19,5 @@
   font-size: 23px;
   line-height: 28px;
   color: var(--color-darkblue);
-  padding: 8px 30px 10px 0;
+  padding: 10px 30px 10px 0;
 }

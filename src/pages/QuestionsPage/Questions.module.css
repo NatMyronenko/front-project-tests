@@ -1,5 +1,8 @@
-.Question_wrapper {
+.Question_section {
   background-color: #eaf0ff;
+}
+
+.Question_wrapper {
   max-width: 596px;
   margin: 0 auto;
   display: grid;

@@ -1,0 +1,13 @@
+.Question_text {
+  font-size: 27px;
+  line-height: 96%;
+
+  color: var(--color-darkblue);
+}
+.Question_text:not(:last-child) {
+  margin-bottom: 60px;
+}
+
+.Answer_body {
+  margin-bottom: 50px;
+}

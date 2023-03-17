@@ -6,7 +6,6 @@ export const Button = ({ children, disabled }) => {
   return (
     <>
       <button
-        type="button"
         className={css.Button + ' ' + css['button--blue']}
         disabled={disabled}
       >

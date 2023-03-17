@@ -11,3 +11,5 @@ export * from './Metrics/Metrics';
 export * from './CustomCheckbox/CustomCheckbox';
 export * from './SelectList/SelectList';
 export * from './SelectItem/SelectItem';
+export * from './QuestionItem/QuestionItem';
+export * from './Answer/Answer';

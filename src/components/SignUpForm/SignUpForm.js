@@ -4,42 +4,38 @@ import { Button, CustomCheckbox } from 'components';
 import { AiOutlineEye } from 'react-icons/ai';
 
 export const SignUpForm = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const [isChecked, setIsChecked] = useState(false);
-
   const handleCheck = () => setIsChecked(!isChecked);
+  const handleSubmit = e => {
+    e.preventDefault();
+    const formEl = e.currentTarget.elements;
 
-  function handleFirstNameChange(event) {
-    setFirstName(event.target.value);
-  }
-  function handleLastNameChange(event) {
-    setLastName(event.target.value);
-  }
-
-  function handleEmailChange(event) {
-    setEmail(event.target.value);
-  }
-
-  function handlePasswordChange(event) {
-    setPassword(event.target.value);
-  }
+    const formData = {
+      firstName: formEl.username.value,
+      lastName: formEl.userLastName.value,
+      email: formEl.userEmail.value,
+      password: formEl.userPassword.value,
+    };
+    console.log(formData);
+  };
 
   return (
     <div className={css.Form_wrapper}>
-      <form id="form-signup" className={css.SignUp_Form}>
+      <form
+        id="form-signup"
+        className={css.SignUp_Form}
+        onSubmit={handleSubmit}
+      >
         <div className={css.User_Box}>
           <input
             type="text"
             name="username"
-            value={firstName}
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
             id="user-name"
             className={css.Input}
             placeholder="First name"
-            onChange={handleFirstNameChange}
+            pattern="^(?=.{2,24}$)[A-Za-zА-Яа-яІіЇїЄєҐґ]+(?:[- '][A-Za-zА-Яа-яІіЇїЄєҐґ]+)*$"
           />
           <div className={css.Input_desr}>
             This name will be used for greeting and on the certificate of test
@@ -51,11 +47,12 @@ export const SignUpForm = () => {
           <input
             type="text"
             name="userLastName"
-            value={lastName}
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
             id="user-name"
             className={css.Input}
             placeholder="Last name"
-            onChange={handleLastNameChange}
+            pattern="^(?=.{2,24}$)[A-Za-zА-Яа-яІіЇїЄєҐґ]+(?:[- '][A-Za-zА-Яа-яІіЇїЄєҐґ]+)*$"
           />
           <div className={css.Input_desr}>
             This last name will be used on the certificate of test completion
@@ -67,11 +64,11 @@ export const SignUpForm = () => {
           <input
             type="email"
             name="userEmail"
-            value={email}
+            required
             id="user-email"
             placeholder="Email"
             className={css.Input}
-            onChange={handleEmailChange}
+            pattern="^(?=.{10,63}$)[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$"
           />
           <div className={css.Input_desr}>
             This email will be used for your login, notifications and password
@@ -84,11 +81,11 @@ export const SignUpForm = () => {
           <input
             type="password"
             name="userPassword"
-            value={password}
             id="user-password"
             placeholder="Password"
+            required
             className={css.Input}
-            onChange={handlePasswordChange}
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\\|,.<>\?]).{8,32}$"
           />
           <AiOutlineEye className={css.Password_icon} size={30} />
           <div className={css.Input_desr}>
@@ -114,10 +111,6 @@ export const SignUpForm = () => {
         <Button type="submit" colorType="button--blue" disabled={!isChecked}>
           Sign Up
         </Button>
-
-        {/*<button type="submit" className={css.Login_Button}>
-		Login
-	</button>*/}
       </form>
     </div>
   );

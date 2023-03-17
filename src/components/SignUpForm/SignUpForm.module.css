@@ -26,6 +26,13 @@
   border-radius: 5px;
 }
 
+/*.Input:invalid {
+  outline: 1px solid red;
+}
+.Input:valid {
+  outline: 1px solid green;
+}*/
+
 .Input_desr {
   padding-top: 5px;
   font-size: 12px;

@@ -1,0 +1,17 @@
+.Question_section {
+  background-color: #eaf0ff;
+}
+
+.Question_wrapper {
+  max-width: 596px;
+  margin: 0 auto;
+  display: grid;
+  padding-bottom: 100px;
+}
+.Question_score {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 96%;
+  color: var(--color-darkblue);
+  margin-bottom: 30px;
+}

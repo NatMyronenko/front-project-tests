@@ -7,9 +7,20 @@ import { AiOutlineEye } from 'react-icons/ai';
 export const LoginForm = ({ isOnLogin }) => {
   const [isChecked, setIsChecked] = useState(false);
   const handleCheck = () => setIsChecked(!isChecked);
+  const handleSubmit = e => {
+    e.preventDefault();
+    const formEl = e.currentTarget.elements;
+
+    const formData = {
+      email: formEl.userEmail.value,
+      password: formEl.userPassword.value,
+    };
+    console.log(formData);
+  };
+
   return (
     <div className={css.Form_wrapper}>
-      <form id="form-login" className={css.Login_Form}>
+      <form id="form-login" className={css.Login_Form} onSubmit={handleSubmit}>
         <div className={css.User_Box}>
           <input
             type="email"

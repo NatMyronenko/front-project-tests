@@ -7,3 +7,7 @@
 .Question_text:not(:last-child) {
   margin-bottom: 60px;
 }
+
+.Answer_body {
+  margin-bottom: 50px;
+}

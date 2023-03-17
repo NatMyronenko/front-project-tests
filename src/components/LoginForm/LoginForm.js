@@ -5,28 +5,31 @@ import { AiOutlineEye } from 'react-icons/ai';
 //import checkSvg from '../../img/sprite.svg'
 
 export const LoginForm = ({ isOnLogin }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const [isChecked, setIsChecked] = useState(false);
-
   const handleCheck = () => setIsChecked(!isChecked);
+  const handleSubmit = e => {
+    e.preventDefault();
+    const formEl = e.currentTarget.elements;
 
-  const handleEmailChange = event => setEmail(event.target.value);
-  const handlePasswordChange = event => setPassword(event.target.value);
+    const formData = {
+      email: formEl.userEmail.value,
+      password: formEl.userPassword.value,
+    };
+    console.log(formData);
+  };
 
   return (
     <div className={css.Form_wrapper}>
-      <form id="form-login" className={css.Login_Form}>
+      <form id="form-login" className={css.Login_Form} onSubmit={handleSubmit}>
         <div className={css.User_Box}>
           <input
             type="email"
-            value={email}
             name="userEmail"
+            required
             id="user-email"
             className={css.Input}
             placeholder="Enter your email here"
-            onChange={handleEmailChange}
+            pattern="^(?=.{10,63}$)[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$"
           />
 
           <div className={css.Form_Error}></div>
@@ -35,12 +38,11 @@ export const LoginForm = ({ isOnLogin }) => {
           <input
             type="password"
             name="userPassword"
-            value={password}
             required
             id="user-password"
             className={css.Input}
             placeholder="Enter your password here"
-            onChange={handlePasswordChange}
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\\|,.<>\?]).{8,32}$"
           />
           <AiOutlineEye className={css.Password_icon} size={30} />
           <div className={css.Form_Error}></div>

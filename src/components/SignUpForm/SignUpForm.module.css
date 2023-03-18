@@ -14,7 +14,7 @@
   background: linear-gradient(138.68deg, #dce6ff 8.7%, #ffffff 123.75%);
   border-radius: 5px;
   text-align: center;
-  padding: 21px 25px;
+  padding: 22px 27px;
   margin-bottom: -36px;
 }
 
@@ -92,11 +92,18 @@
   opacity: 1;
 }
 
-.Password_icon {
+.Password_btn {
+  padding: 0;
+  width: 30px;
+  height: 30px;
   position: absolute;
-  color: #bcbcbc;
+  color: var(--color-gray);
+  cursor: pointer;
   top: 7.5px;
   right: 15px;
+  background-color: transparent;
+  outline: none;
+  border: none;
 }
 
 .Redirected {

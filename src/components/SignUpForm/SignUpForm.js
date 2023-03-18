@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import css from './SignUpForm.module.css';
 import { Button } from 'components';
 import { AiOutlineEye } from 'react-icons/ai';
+import { RiEyeCloseLine } from 'react-icons/ri';
 
 export const SignUpForm = ({ isOnLogin }) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const handleTogglePassword = () => setShowPassword(!showPassword);
+
   const handleSubmit = e => {
     e.preventDefault();
     const formEl = e.currentTarget.elements;
@@ -83,7 +87,7 @@ export const SignUpForm = ({ isOnLogin }) => {
 
         <div className={css.User_Box}>
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             name="userPassword"
             id="user-password"
             placeholder="Enter your password"
@@ -98,7 +102,17 @@ export const SignUpForm = ({ isOnLogin }) => {
             The password must contain a capital and lowercase letter and
             numbers, with no fewer than 8 characters.
           </label>
-          <AiOutlineEye className={css.Password_icon} size={30} />
+          <button
+            type="button"
+            onClick={handleTogglePassword}
+            className={css.Password_btn}
+          >
+            {showPassword ? (
+              <RiEyeCloseLine size={30} />
+            ) : (
+              <AiOutlineEye size={30} />
+            )}
+          </button>
 
           <div className={css.Form_Error}></div>
         </div>

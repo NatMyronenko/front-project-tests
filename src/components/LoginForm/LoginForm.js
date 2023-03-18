@@ -2,12 +2,16 @@ import { Button, CustomCheckbox } from 'components';
 import React, { useState } from 'react';
 import css from './LoginForm.module.css';
 import { AiOutlineEye } from 'react-icons/ai';
+import { RiEyeCloseLine } from 'react-icons/ri';
 //import checkSvg from '../../img/sprite.svg'
 
 export const LoginForm = ({ isOnLogin }) => {
   const [isChecked, setIsChecked] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleCheck = () => setIsChecked(!isChecked);
+
+  const handleTogglePassword = () => setShowPassword(!showPassword);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -39,7 +43,7 @@ export const LoginForm = ({ isOnLogin }) => {
         </div>
         <div className={css.User_Box}>
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             name="userPassword"
             required
             id="user-password"
@@ -47,7 +51,19 @@ export const LoginForm = ({ isOnLogin }) => {
             placeholder="Enter your password here"
             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\\|,.<>\?]).{8,32}$"
           />
-          <AiOutlineEye className={css.Password_icon} size={30} />
+
+          <button
+            type="button"
+            onClick={handleTogglePassword}
+            className={css.Password_btn}
+          >
+            {showPassword ? (
+              <RiEyeCloseLine size={30} />
+            ) : (
+              <AiOutlineEye size={30} />
+            )}
+          </button>
+
           <div className={css.Form_Error}></div>
         </div>
 

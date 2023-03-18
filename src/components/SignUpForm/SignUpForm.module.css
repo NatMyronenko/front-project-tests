@@ -15,6 +15,7 @@
   border-radius: 5px;
   text-align: center;
   padding: 21px 25px;
+  margin-bottom: -36px;
 }
 
 .Input {
@@ -28,6 +29,7 @@
   padding: 10px 25px;
   box-shadow: inset 1px 1px 1px rgba(92, 129, 225, 0.32);
   border-radius: 5px;
+  position: relative;
 }
 
 .Input:focus,
@@ -40,11 +42,11 @@
   color: var(--color-gray);
 }
 
+.Input:valid {
+  box-shadow: 0px 2px 0px 0px #00ff00;
+}
 /*.Input:invalid {
   outline: 1px solid red;
-}
-.Input:valid {
-  outline: 1px solid green;
 }*/
 
 .Input_desr {
@@ -54,11 +56,46 @@
   color: var(--color-darkblue);
   text-align: left;
 }
+.Input_hint {
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  width: 100%;
+  max-width: 273px;
+  font-size: 13px;
+  line-height: 128.5%;
+  text-align: center;
+  color: var(--color-darkblue);
+  background: #fff5de;
+  filter: drop-shadow(3px 3px 4px rgba(137, 150, 183, 0.5));
+  border-radius: 7px;
+  transform: translate(-50%, 0px);
+  padding: 2px 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease 0s;
+}
+
+.Input_hint::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-top: 8px solid #fff5de;
+  transform: translate(-50%, 0px);
+}
+
+.Input:focus + label.Input_hint {
+  opacity: 1;
+}
 
 .Password_icon {
   position: absolute;
   color: #bcbcbc;
-  top: 12px;
+  top: 7.5px;
   right: 15px;
 }
 

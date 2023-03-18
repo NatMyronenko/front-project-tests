@@ -29,6 +29,9 @@
   color: var(--color-gray);
 }
 
+.Input:valid {
+  box-shadow: 0px 2px 0px 0px #00ff00;
+}
 .Password_icon {
   position: absolute;
   color: var(--color-gray);

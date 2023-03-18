@@ -33,9 +33,12 @@ export const SignUpForm = ({ isOnLogin }) => {
             required
             id="user-name"
             className={css.Input}
-            placeholder="First name"
+            placeholder="Enter your first name"
             pattern="^(?=.{2,24}$)[A-Za-zА-Яа-яІіЇїЄєҐґ]+(?:[- '][A-Za-zА-Яа-яІіЇїЄєҐґ]+)*$"
           />
+          <label htmlFor="user-password" className={css.Input_hint}>
+            This last name will be used on the certificate of test completion.
+          </label>
 
           <div className={css.Form_Error}></div>
         </div>
@@ -48,9 +51,12 @@ export const SignUpForm = ({ isOnLogin }) => {
             required
             id="user-name"
             className={css.Input}
-            placeholder="Last name"
+            placeholder="Enter your last name"
             pattern="^(?=.{2,24}$)[A-Za-zА-Яа-яІіЇїЄєҐґ]+(?:[- '][A-Za-zА-Яа-яІіЇїЄєҐґ]+)*$"
           />
+          <label htmlFor="user-password" className={css.Input_hint}>
+            This last name will be used on the certificate of test completion.
+          </label>
 
           <div className={css.Form_Error}></div>
         </div>
@@ -61,14 +67,17 @@ export const SignUpForm = ({ isOnLogin }) => {
             name="userEmail"
             required
             id="user-email"
-            placeholder="Email"
+            placeholder="Enter your email"
             className={css.Input}
             title="This email will be used for your login,
 						notifications and password recovery. 
 						We don’t send spam."
             pattern="^(?=.{10,63}$)[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$"
           />
-
+          <label htmlFor="user-email" className={css.Input_hint}>
+            This email will be used for your login, notifications and password
+            recovery. We don’t send spam.
+          </label>
           <div className={css.Form_Error}></div>
         </div>
 
@@ -77,7 +86,7 @@ export const SignUpForm = ({ isOnLogin }) => {
             type="password"
             name="userPassword"
             id="user-password"
-            placeholder="Password"
+            placeholder="Enter your password"
             required
             className={css.Input}
             title="The password must contain a capital and 
@@ -85,6 +94,10 @@ export const SignUpForm = ({ isOnLogin }) => {
 						fewer than 8 characters."
             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\\|,.<>\?]).{8,32}$"
           />
+          <label htmlFor="user-password" className={css.Input_hint}>
+            The password must contain a capital and lowercase letter and
+            numbers, with no fewer than 8 characters.
+          </label>
           <AiOutlineEye className={css.Password_icon} size={30} />
 
           <div className={css.Form_Error}></div>

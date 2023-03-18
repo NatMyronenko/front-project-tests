@@ -44,19 +44,6 @@
   text-align: left;
 }
 
-/*.Checkbox_input:checked ~ .Checkbox_checkmark:after {
-  content: '';
-  position: absolute;
-  display: block;
-  left: 8px;
-  top: 7px;
-
-  width: 11px;
-  height: 11px;
-  border: solid var(--color-darkblue);
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}*/
 .Checkbox_input:focus + span {
   outline: 1px solid burlywood;
 }

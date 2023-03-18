@@ -5,7 +5,7 @@ export const Metrics = () => {
   return (
     <ul className={css.Metric_wrapper}>
       <li className={css.Metric_item}>
-        <div className={css.Metric_count}>175+</div>
+        <div className={css.Metric_count}>174+</div>
         <div className={css.Metric_tag}>users</div>
       </li>
       <li className={css.Metric_item}>
@@ -13,7 +13,7 @@ export const Metrics = () => {
         <div className={css.Metric_tag}>tests</div>
       </li>
       <li className={css.Metric_item}>
-        <div className={css.Metric_count}>175+</div>
+        <div className={css.Metric_count}>213+</div>
         <div className={css.Metric_tag}>users</div>
       </li>
     </ul>

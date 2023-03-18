@@ -113,13 +113,14 @@
   color: var(--color-darkblue);
 }
 .Redirected_link {
-  font-size: inherit;
+  font-size: 14px;
   border: none;
   outline: none;
   background-color: transparent;
   font-weight: 700;
   text-decoration: underline;
   cursor: pointer;
+  color: inherit;
 }
 
 .Form_Error {

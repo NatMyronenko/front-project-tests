@@ -35,7 +35,7 @@ export const LoginForm = ({ isOnLogin }) => {
             required
             id="user-email"
             className={css.Input}
-            placeholder="Enter your email here"
+            placeholder="Enter your email"
             pattern="^(?=.{10,63}$)[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$"
           />
 
@@ -48,7 +48,7 @@ export const LoginForm = ({ isOnLogin }) => {
             required
             id="user-password"
             className={css.Input}
-            placeholder="Enter your password here"
+            placeholder="Enter your password"
             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\\|,.<>\?]).{8,32}$"
           />
 

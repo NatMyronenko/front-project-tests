@@ -52,6 +52,7 @@
 }
 
 .Checkbox_login {
+  font-size: 14px;
   padding-top: 7px;
   margin-bottom: 20px;
   position: relative;
@@ -61,7 +62,6 @@
   font-family: 'Lato';
   font-size: 14px;
   line-height: 17px;
-
   color: var(--color-darkblue);
 }
 
@@ -81,14 +81,14 @@
   margin-bottom: 30px;
 }
 .Create_acc {
+  font-size: 14px;
   line-height: 137%;
   color: var(--color-darkblue);
 }
 .Create_desr {
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 137%;
-
   text-decoration-line: underline;
   background-color: transparent;
   border: 0;

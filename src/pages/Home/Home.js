@@ -33,7 +33,10 @@ export const Home = () => {
         <div className={css.Elipse2}></div>
         <div className={css.Elipse3}></div>
       </div>
-      <Metrics />
+      <div className={css.Metrics_wrapper}>
+        <Metrics />
+      </div>
+
       {/*{isOnLogin ? <Metrics /> : null}*/}
     </Section>
   );

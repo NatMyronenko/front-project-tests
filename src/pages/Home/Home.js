@@ -23,13 +23,18 @@ export const Home = () => {
           </p>
         </div>
 
-        {isOnLogin ? <LoginForm isOnLogin={handleOnLogin} /> : <SignUpForm />}
+        {isOnLogin ? (
+          <LoginForm isOnLogin={handleOnLogin} />
+        ) : (
+          <SignUpForm isOnLogin={handleOnLogin} />
+        )}
 
         <div className={css.Elipse1}></div>
         <div className={css.Elipse2}></div>
         <div className={css.Elipse3}></div>
       </div>
-      {isOnLogin ? <Metrics /> : null}
+      <Metrics />
+      {/*{isOnLogin ? <Metrics /> : null}*/}
     </Section>
   );
 };

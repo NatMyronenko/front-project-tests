@@ -3,6 +3,7 @@ import css from 'components/Button/Button.module.css';
 import PropTypes from 'prop-types';
 
 export const Button = ({ children, disabled }) => {
+  console.log(disabled);
   return (
     <>
       <button

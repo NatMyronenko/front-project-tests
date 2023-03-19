@@ -2,15 +2,20 @@
   position: relative;
   margin-bottom: 18px;
 }
+.User_Box:nth-child(4) {
+  margin-bottom: 22px;
+}
 
 .Form_wrapper {
   /* border: 1px solid brown; */
   /* flex: 0 0 50%; */
-  width: calc((100%-80px) / 2);
+  /*width: calc((100%-80px) / 2);*/
+  width: calc((100%) / 2);
   background: linear-gradient(138.68deg, #dce6ff 8.7%, #ffffff 123.75%);
   border-radius: 5px;
   text-align: center;
-  padding: 25px 60px 40px;
+  padding: 22px 27px;
+  margin-bottom: -36px;
 }
 
 .Input {
@@ -20,17 +25,28 @@
   line-height: 24px;
   border: none;
   color: var(--color-darkblue);
-  background: #ffffff;
-  padding: 15px 25px;
+  background: var(--color-white);
+  padding: 10px 25px;
   box-shadow: inset 1px 1px 1px rgba(92, 129, 225, 0.32);
   border-radius: 5px;
+  position: relative;
 }
 
+.Input:focus,
+.Redirected_link:focus {
+  outline: 1px solid burlywood;
+}
+.Input::placeholder {
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--color-gray);
+}
+
+.Input:valid {
+  box-shadow: 0px 2px 0px 0px #00ff00;
+}
 /*.Input:invalid {
   outline: 1px solid red;
-}
-.Input:valid {
-  outline: 1px solid green;
 }*/
 
 .Input_desr {
@@ -40,25 +56,71 @@
   color: var(--color-darkblue);
   text-align: left;
 }
-
-.Password_icon {
+.Input_hint {
   position: absolute;
-  color: #bcbcbc;
-  top: 12px;
-  right: 15px;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  width: 100%;
+  max-width: 273px;
+  font-size: 13px;
+  line-height: 128.5%;
+  text-align: center;
+  color: var(--color-darkblue);
+  background: #fff5de;
+  filter: drop-shadow(3px 3px 4px rgba(137, 150, 183, 0.5));
+  border-radius: 7px;
+  transform: translate(-50%, 0px);
+  padding: 2px 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease 0s;
 }
-.Privacy_desr {
-  padding-left: 12px;
-}
-.Privacy_desr > span {
-  font-weight: 700;
 
-  text-decoration-line: underline;
+.Input_hint::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-top: 8px solid #fff5de;
+  transform: translate(-50%, 0px);
+}
+
+.Input:focus + label.Input_hint {
+  opacity: 1;
+}
+
+.Password_btn {
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  color: var(--color-gray);
+  cursor: pointer;
+  top: 7.5px;
+  right: 15px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.Redirected {
+  font-size: 14px;
+  margin-top: 23px;
+  line-height: 137%;
   color: var(--color-darkblue);
 }
-
-.Checkbox_signUp {
-  margin-bottom: 18px;
+.Redirected_link {
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  color: inherit;
 }
 
 .Form_Error {

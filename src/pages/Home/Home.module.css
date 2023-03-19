@@ -1,16 +1,15 @@
 .Home_wrapper {
-  margin: 0px auto 90px;
+  margin: 0px auto 82px;
   display: flex;
-  justify-content: center;
-  gap: 40px;
-  max-width: 1040px;
+  max-width: 972px;
   position: relative;
+  gap: 60px;
 }
 .Hero_title {
   font-size: 40px;
   line-height: 48px;
   margin-top: 0;
-  color: #111f42;
+  color: var(--color-darkblue);
   margin-bottom: 35px;
 }
 .Hero_title span {
@@ -20,14 +19,20 @@
 .Hero_desr {
   font-size: 16px;
   line-height: 137%;
-  max-width: 480px;
+  max-width: 430px;
   color: var(--color-black);
+  margin: 0;
 }
 
 .Title_wrapper {
   box-sizing: border-box;
-  width: calc((100%-80px) / 2);
+  width: calc((100%) / 2);
   align-self: center;
+  padding-left: 25px;
+}
+
+.Metrics_wrapper {
+  padding-bottom: 164px;
 }
 
 .Elipse1 {
@@ -46,7 +51,7 @@
   border-radius: 50%;
   position: absolute;
   background-color: #51e05b;
-  bottom: 69px;
+  bottom: 12px;
   left: 95px;
 }
 .Elipse3 {
@@ -55,19 +60,6 @@
   border-radius: 50%;
   position: absolute;
   background-color: #e0729b;
-  bottom: -58px;
-  right: 80px;
-}
-
-.Demonstration {
-  padding: 15px 30px;
-  background: tomato;
-  border-radius: 10px;
-  display: inline-block;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
-.Demonstration:hover {
-  transform: translate(0px, 2px);
+  bottom: -93px;
+  right: 36px;
 }

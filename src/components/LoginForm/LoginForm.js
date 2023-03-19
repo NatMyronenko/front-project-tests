@@ -2,11 +2,17 @@ import { Button, CustomCheckbox } from 'components';
 import React, { useState } from 'react';
 import css from './LoginForm.module.css';
 import { AiOutlineEye } from 'react-icons/ai';
+import { RiEyeCloseLine } from 'react-icons/ri';
 //import checkSvg from '../../img/sprite.svg'
 
 export const LoginForm = ({ isOnLogin }) => {
   const [isChecked, setIsChecked] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
   const handleCheck = () => setIsChecked(!isChecked);
+
+  const handleTogglePassword = () => setShowPassword(!showPassword);
+
   const handleSubmit = e => {
     e.preventDefault();
     const formEl = e.currentTarget.elements;
@@ -15,6 +21,7 @@ export const LoginForm = ({ isOnLogin }) => {
       email: formEl.userEmail.value,
       password: formEl.userPassword.value,
     };
+
     console.log(formData);
   };
 
@@ -28,7 +35,7 @@ export const LoginForm = ({ isOnLogin }) => {
             required
             id="user-email"
             className={css.Input}
-            placeholder="Enter your email here"
+            placeholder="Enter your email"
             pattern="^(?=.{10,63}$)[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$"
           />
 
@@ -36,15 +43,27 @@ export const LoginForm = ({ isOnLogin }) => {
         </div>
         <div className={css.User_Box}>
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             name="userPassword"
             required
             id="user-password"
             className={css.Input}
-            placeholder="Enter your password here"
+            placeholder="Enter your password"
             pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\\|,.<>\?]).{8,32}$"
           />
-          <AiOutlineEye className={css.Password_icon} size={30} />
+
+          <button
+            type="button"
+            onClick={handleTogglePassword}
+            className={css.Password_btn}
+          >
+            {showPassword ? (
+              <RiEyeCloseLine size={30} />
+            ) : (
+              <AiOutlineEye size={30} />
+            )}
+          </button>
+
           <div className={css.Form_Error}></div>
         </div>
 

@@ -14,29 +14,30 @@ export const Home = () => {
         <div className={css.Title_wrapper}>
           <h1 className={css.Hero_title}>
             It’s time to <span>check </span> <br />
-            your <span>QA knowledge</span> here!
+            your <span>knowledge</span> here!
           </h1>
           <p className={css.Hero_desr}>
-            We made this platform so you can easily check how much you know and
-            prepare for a successful job interview.
+            We made this platform with lots of <b>Javascript</b> and <b>Java</b>{' '}
+            tests. You can easily check how much you know and prepare for a
+            successful job interview.
           </p>
-
-          {/*<button
-            className={css.Demonstration}
-            type="button"
-            onClick={handleOnLogin}
-          >
-            click
-          </button>*/}
         </div>
 
-        {isOnLogin ? <LoginForm isOnLogin={handleOnLogin} /> : <SignUpForm />}
+        {isOnLogin ? (
+          <LoginForm isOnLogin={handleOnLogin} />
+        ) : (
+          <SignUpForm isOnLogin={handleOnLogin} />
+        )}
 
         <div className={css.Elipse1}></div>
         <div className={css.Elipse2}></div>
         <div className={css.Elipse3}></div>
       </div>
-      {isOnLogin ? <Metrics /> : null}
+      <div className={css.Metrics_wrapper}>
+        <Metrics />
+      </div>
+
+      {/*{isOnLogin ? <Metrics /> : null}*/}
     </Section>
   );
 };

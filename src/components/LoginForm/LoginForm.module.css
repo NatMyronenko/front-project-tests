@@ -1,37 +1,3 @@
-.Form_wrapper {
-  width: calc((100%) / 2);
-  background: linear-gradient(138.68deg, #dce6ff 8.7%, #ffffff 123.75%);
-  border-radius: 5px;
-  text-align: center;
-  padding: 22px 27px;
-}
-
-.Input {
-  font-family: 'Lato';
-  width: 100%;
-  font-size: 20px;
-  line-height: 24px;
-  border: none;
-  color: var(--color-darkblue);
-  background: var(--color-white);
-  padding: 10px 25px;
-  box-shadow: inset 1px 1px 1px rgba(92, 129, 225, 0.32);
-  border-radius: 5px;
-}
-
-.Input:focus,
-.Create_desr:focus {
-  outline: 1px solid burlywood;
-}
-.Input::placeholder {
-  font-size: 20px;
-  line-height: 24px;
-  color: var(--color-gray);
-}
-
-.Input:valid {
-  box-shadow: 0px 2px 0px 0px #00ff00;
-}
 .Password_btn {
   padding: 0;
   width: 30px;
@@ -48,7 +14,7 @@
 
 .User_Box {
   position: relative;
-  margin-bottom: 13px;
+  margin-bottom: 25px;
 }
 
 .Checkbox_login {

@@ -1,27 +1,56 @@
+import { Flex, Text, Box } from '@chakra-ui/react';
 import { Section, Metrics, SignUpForm, LoginForm } from 'components';
 import React, { useState } from 'react';
-import css from './Home.module.css';
 
 export const Home = () => {
-  const [isOnLogin, setIsOnLogin] = useState(true);
+  const [isOnLogin, setIsOnLogin] = useState(false);
 
   function handleOnLogin() {
     setIsOnLogin(!isOnLogin);
   }
   return (
     <Section>
-      <div className={css.Home_wrapper}>
-        <div className={css.Title_wrapper}>
-          <h1 className={css.Hero_title}>
-            It’s time to <span>check </span> <br />
-            your <span>knowledge</span> here!
-          </h1>
-          <p className={css.Hero_desr}>
-            We made this platform with lots of <b>Javascript</b> and <b>Java</b>{' '}
+      <Flex mx="auto" pos="relative" gap="35px" justify="center">
+        <Flex flexDir="column" px="5" py="4" alignSelf="center">
+          <Text
+            as="h1"
+            fontSize="40px"
+            lineHeight="48px"
+            mt="0"
+            color="blue.900"
+            mb="35px"
+            maxW="30vw"
+          >
+            It’s time to
+            <Text as="span" color="blue.400" mx="2.5">
+              check
+            </Text>
+            <br />
+            your
+            <Text as="span" color="blue.400" mx="2.5">
+              knowledge
+            </Text>
+            here!
+          </Text>
+          <Text
+            as="p"
+            fontSize="16px"
+            lineHeight="1.37"
+            color="black"
+            maxW="33.5vw"
+          >
+            We made this platform with lots of
+            <Text as="b" mx="3px">
+              Javascript
+            </Text>
+            and
+            <Text as="b" mx="3px">
+              Java
+            </Text>
             tests. You can easily check how much you know and prepare for a
             successful job interview.
-          </p>
-        </div>
+          </Text>
+        </Flex>
 
         {isOnLogin ? (
           <LoginForm isOnLogin={handleOnLogin} />
@@ -29,14 +58,38 @@ export const Home = () => {
           <SignUpForm isOnLogin={handleOnLogin} />
         )}
 
-        <div className={css.Elipse1}></div>
-        <div className={css.Elipse2}></div>
-        <div className={css.Elipse3}></div>
-      </div>
-      <div className={css.Metrics_wrapper}>
-        <Metrics />
-      </div>
+        <Box
+          w="6"
+          h="6"
+          rounded="full"
+          pos="absolute"
+          bg="#e0b346"
+          top="-5vh"
+          left="32vw"
+        ></Box>
+        <Box
+          w="6"
+          h="6"
+          rounded="full"
+          pos="absolute"
+          bg="#51e05b"
+          bottom="-4vh"
+          left="10vw"
+        ></Box>
+        <Box
+          w="6"
+          h="6"
+          rounded="full"
+          pos="absolute"
+          bg="#e0729b"
+          bottom="-10vh"
+          right="10vw"
+        ></Box>
+      </Flex>
 
+      <Box>
+        <Metrics />
+      </Box>
       {/*{isOnLogin ? <Metrics /> : null}*/}
     </Section>
   );

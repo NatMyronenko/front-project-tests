@@ -1,24 +1,19 @@
 import { Container, Logo } from 'components';
-import css from './SharedLayout.module.css';
+import { Box, Flex, Spacer } from '@chakra-ui/react';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
 export const SharedLayout = () => {
   return (
     <>
-      <header className={css.Header}>
+      <Box as="header" py="3.5vh">
         <Container>
-          <div className={css.Header__menu}>
+          <Flex>
             <Logo />
-
-            <nav className={css.Menu__body}>
-              <button className={css.Header_button} type="button">
-                EN
-              </button>
-            </nav>
-          </div>
+            <Spacer />
+          </Flex>
         </Container>
-      </header>
+      </Box>
       <Outlet />
     </>
   );

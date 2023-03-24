@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import css from './LoginForm.module.css';
 import { AiOutlineEye } from 'react-icons/ai';
 import { RiEyeCloseLine } from 'react-icons/ri';
 import {
@@ -10,6 +9,7 @@ import {
   InputRightElement,
   Flex,
   Box,
+  Text,
 } from '@chakra-ui/react';
 
 export const LoginForm = ({ isOnLogin }) => {
@@ -17,17 +17,6 @@ export const LoginForm = ({ isOnLogin }) => {
 
   const handleTogglePassword = () => setShowPassword(!showPassword);
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const formEl = e.currentTarget.elements;
-
-    const formData = {
-      email: formEl.userEmail.value,
-      password: formEl.userPassword.value,
-    };
-
-    console.log(formData);
-  };
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -61,7 +50,7 @@ export const LoginForm = ({ isOnLogin }) => {
       } else if (values.password.length > 32) {
         errors.password = 'Password must be at most 32 symbols long';
       } else if (
-        !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\\|,.<>\?]).{8,32}$/i.test(
+        !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\\|,.<>?]).{8,32}$/i.test(
           values.password
         )
       ) {
@@ -71,7 +60,9 @@ export const LoginForm = ({ isOnLogin }) => {
       return errors;
     },
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      //  e.preventDefault();
+
+      console.log(values);
     },
   });
   return (
@@ -81,6 +72,7 @@ export const LoginForm = ({ isOnLogin }) => {
       py="8"
       rounded="md"
       w="460px"
+      mb="13vh"
     >
       <Box w="100%" align="center">
         <form onSubmit={formik.handleSubmit}>
@@ -142,10 +134,14 @@ export const LoginForm = ({ isOnLogin }) => {
 
             <InputRightElement
               pr="4"
+              mt="0.5"
               as="button"
               type="button"
               onClick={handleTogglePassword}
-              className={css.Password_btn}
+              w="10"
+              h="10"
+              color="gray"
+              cursor="pointer"
             >
               {showPassword ? (
                 <AiOutlineEye size={30} />
@@ -168,16 +164,41 @@ export const LoginForm = ({ isOnLogin }) => {
             </Box>
           </InputGroup>
 
-          <Button type="submit">Sign in</Button>
+          <Button
+            type="submit"
+            bg="blue.400"
+            px="27px"
+            py="11px"
+            fontSize="20px"
+            fontWeight="700"
+            lineHeight="base"
+            color="white"
+            mb="6"
+          >
+            Sign in
+          </Button>
         </form>
-        <div className={css.Forgot_pass}>Forgot password?</div>
-        <div className={css.Create_acc}>
-          Don’t have an acount yet?
-          <button type="button" className={css.Create_desr} onClick={isOnLogin}>
-            Create your account here.
-          </button>
-          <br />
-          It will take less than two minutes.
+
+        <div>
+          <Text
+            align="baseline"
+            justify="center"
+            mb="1"
+            lineHeight="1.37"
+            color="blue.900"
+            fontSize="14px"
+          >
+            Don’t have an acount yet?
+            <button type="button" cursor="pointer" onClick={isOnLogin}>
+              <Text as="u" fontWeight="700" pl="3px" color="blue.900">
+                Create your account here
+              </Text>
+            </button>
+          </Text>
+
+          <Text lineHeight="1.37" color="blue.900" fontSize="14px">
+            It will take less than two minutes.
+          </Text>
         </div>
       </Box>
     </Flex>

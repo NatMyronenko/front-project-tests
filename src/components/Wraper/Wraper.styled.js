@@ -5,4 +5,5 @@ export const Wraper = styled.div`
   flex-direction: column;
   min-height: 100%;
   overflow: hidden;
+  justify-content: space-between;
 `;

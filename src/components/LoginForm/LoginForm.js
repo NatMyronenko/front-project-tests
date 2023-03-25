@@ -1,95 +1,157 @@
-import { Button, CustomCheckbox } from 'components';
 import React, { useState } from 'react';
-import css from './LoginForm.module.css';
+import { useFormik } from 'formik';
 import { AiOutlineEye } from 'react-icons/ai';
 import { RiEyeCloseLine } from 'react-icons/ri';
-//import checkSvg from '../../img/sprite.svg'
+import {
+  Button,
+  InputGroup,
+  InputRightElement,
+  Flex,
+  Box,
+  Text,
+} from '@chakra-ui/react';
+import { CustomButton, InputBox } from 'components';
+import { validateEmail, validatePassword } from 'services';
 
 export const LoginForm = ({ isOnLogin }) => {
-  const [isChecked, setIsChecked] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
-  const handleCheck = () => setIsChecked(!isChecked);
+  const [isValid, setIsValid] = useState({
+    email: false,
+    password: false,
+  });
 
   const handleTogglePassword = () => setShowPassword(!showPassword);
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const formEl = e.currentTarget.elements;
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validate: values => {
+      const errors = {};
+      const errorEmail = validateEmail(values);
+      if (!errorEmail) {
+        setIsValid(prevState => ({ ...prevState, email: true }));
+      } else {
+        setIsValid(prevState => ({ ...prevState, email: false }));
+        errors.email = errorEmail;
+      }
+      const errorPassword = validatePassword(values);
+      if (!errorPassword) {
+        setIsValid(prevState => ({ ...prevState, password: true }));
+      } else {
+        setIsValid(prevState => ({ ...prevState, password: false }));
+        errors.password = errorPassword;
+      }
+      return errors;
+    },
+    onSubmit: values => {
+      //  e.preventDefault();
 
-    const formData = {
-      email: formEl.userEmail.value,
-      password: formEl.userPassword.value,
-    };
-
-    console.log(formData);
-  };
-
+      console.log(values);
+    },
+  });
   return (
-    <div className={css.Form_wrapper}>
-      <form id="form-login" className={css.Login_Form} onSubmit={handleSubmit}>
-        <div className={css.User_Box}>
-          <input
-            type="email"
-            name="userEmail"
-            required
-            id="user-email"
-            className={css.Input}
-            placeholder="Enter your email"
-            pattern="^(?=.{10,63}$)[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$"
-          />
+    <Flex
+      bgGradient="linear(to-br, #DCE6FF 8.7%, #FFFFFF 123.75%)"
+      px="7"
+      py="8"
+      rounded="md"
+      w="460px"
+      mb="13vh"
+    >
+      <Box w="100%" align="center">
+        <form onSubmit={formik.handleSubmit}>
+          <InputGroup pos="relative" display="block">
+            <InputBox
+              formik={formik}
+              placeholder="Enter your email"
+              isValid={isValid.email}
+              name="email"
+              type="email"
+            />
+            <Box
+              h="5"
+              my="4px"
+              align="left"
+              fontSize="14px"
+              color="red.400"
+              lineHeight="none"
+            >
+              {formik.errors.email &&
+                formik.touched.email &&
+                formik.errors.email}
+            </Box>
+          </InputGroup>
 
-          <div className={css.Form_Error}></div>
-        </div>
-        <div className={css.User_Box}>
-          <input
-            type={showPassword ? 'text' : 'password'}
-            name="userPassword"
-            required
-            id="user-password"
-            className={css.Input}
-            placeholder="Enter your password"
-            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\\|,.<>\?]).{8,32}$"
-          />
+          <InputGroup pos="relative" display="block">
+            <InputBox
+              formik={formik}
+              placeholder="Enter your password"
+              isValid={isValid.password}
+              name="password"
+              type={showPassword ? 'text' : 'password'}
+            />
 
-          <button
-            type="button"
-            onClick={handleTogglePassword}
-            className={css.Password_btn}
+            <InputRightElement
+              pr="4"
+              mt="0.5"
+              as="button"
+              type="button"
+              onClick={handleTogglePassword}
+              w="10"
+              h="10"
+              color="gray"
+              cursor="pointer"
+            >
+              {showPassword ? (
+                <AiOutlineEye size={30} />
+              ) : (
+                <RiEyeCloseLine size={30} />
+              )}
+            </InputRightElement>
+
+            <Box
+              h="10"
+              my="4px"
+              align="left"
+              fontSize="14px"
+              color="red.400"
+              lineHeight="none"
+            >
+              {formik.errors.password &&
+                formik.touched.password &&
+                formik.errors.password}
+            </Box>
+          </InputGroup>
+
+          <CustomButton type="submit" mb="6" disabled={false}>
+            Sign in
+          </CustomButton>
+        </form>
+
+        <div>
+          <Text
+            align="baseline"
+            justify="center"
+            mb="1"
+            lineHeight="1.37"
+            color="blue.900"
+            fontSize="14px"
           >
-            {showPassword ? (
-              <RiEyeCloseLine size={30} />
-            ) : (
-              <AiOutlineEye size={30} />
-            )}
-          </button>
+            Don’t have an acount yet?
+            <button type="button" cursor="pointer" onClick={isOnLogin}>
+              <Text as="u" fontWeight="700" pl="3px" color="blue.900">
+                Create your account here
+              </Text>
+            </button>
+          </Text>
 
-          <div className={css.Form_Error}></div>
+          <Text lineHeight="1.37" color="blue.900" fontSize="14px">
+            It will take less than two minutes.
+          </Text>
         </div>
-
-        <div className={css.Checkbox_login}>
-          <CustomCheckbox
-            id="checkbox"
-            onChange={handleCheck}
-            isChecked={isChecked}
-          >
-            Remember me
-          </CustomCheckbox>
-        </div>
-
-        <Button type="submit" disabled={false}>
-          Sign in
-        </Button>
-      </form>
-      <div className={css.Forgot_pass}>Forgot password?</div>
-      <div className={css.Create_acc}>
-        Don’t have an acount yet?
-        <button type="button" className={css.Create_desr} onClick={isOnLogin}>
-          Create your account here.
-        </button>
-        <br />
-        It will take less than two minutes.
-      </div>{' '}
-    </div>
+      </Box>
+    </Flex>
   );
 };

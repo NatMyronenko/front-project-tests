@@ -1,4 +1,4 @@
-export * from './Button/Button';
+export * from './CustomButton/CustomButton';
 export * from './Container/Container.styled';
 export * from './LoginForm/LoginForm';
 export * from './Logo/Logo';
@@ -13,3 +13,4 @@ export * from './SelectList/SelectList';
 export * from './SelectItem/SelectItem';
 export * from './QuestionItem/QuestionItem';
 export * from './Answer/Answer';
+export * from './InputBox/InputBox';

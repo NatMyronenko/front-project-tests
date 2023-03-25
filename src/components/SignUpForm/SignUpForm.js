@@ -1,150 +1,254 @@
 import React, { useState } from 'react';
-import css from './SignUpForm.module.css';
-import { Button } from 'components';
+import { useFormik } from 'formik';
+import {
+  InputGroup,
+  InputRightElement,
+  Flex,
+  Box,
+  Text,
+} from '@chakra-ui/react';
+import { InputBox, CustomButton } from 'components';
 import { AiOutlineEye } from 'react-icons/ai';
+import { ImInfo } from 'react-icons/im';
+import { FaStarOfLife } from 'react-icons/fa';
 import { RiEyeCloseLine } from 'react-icons/ri';
-
+import {
+  validateFirstName,
+  validateLastName,
+  validateEmail,
+  validatePassword,
+} from 'services';
 export const SignUpForm = ({ isOnLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isValid, setIsValid] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+    password: false,
+  });
   const handleTogglePassword = () => setShowPassword(!showPassword);
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const formEl = e.currentTarget.elements;
+  const formik = useFormik({
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+    },
+    validate: values => {
+      const errors = {};
+      const errorFirstName = validateFirstName(values);
+      if (!errorFirstName) {
+        setIsValid(prevState => ({ ...prevState, firstName: true }));
+      } else {
+        setIsValid(prevState => ({ ...prevState, firstName: false }));
+        errors.firstName = errorFirstName;
+      }
+      const errorLastName = validateLastName(values);
+      if (!errorLastName) {
+        setIsValid(prevState => ({ ...prevState, lastName: true }));
+      } else {
+        setIsValid(prevState => ({ ...prevState, lastName: false }));
+        errors.lastName = errorLastName;
+      }
+      const errorEmail = validateEmail(values);
+      if (!errorEmail) {
+        setIsValid(prevState => ({ ...prevState, email: true }));
+      } else {
+        setIsValid(prevState => ({ ...prevState, email: false }));
+        errors.email = errorEmail;
+      }
+      const errorPassword = validatePassword(values);
+      if (!errorPassword) {
+        setIsValid(prevState => ({ ...prevState, password: true }));
+      } else {
+        setIsValid(prevState => ({ ...prevState, password: false }));
+        errors.password = errorPassword;
+      }
+      return errors;
+    },
+    onSubmit: values => {
+      //  e.preventDefault();
 
-    const formData = {
-      firstName: formEl.username.value,
-      lastName: formEl.userLastName.value,
-      email: formEl.userEmail.value,
-      password: formEl.userPassword.value,
-    };
-    console.log(formData);
-  };
-
+      console.log(values);
+    },
+  });
   return (
-    <div className={css.Form_wrapper}>
-      <form
-        id="form-signup"
-        className={css.SignUp_Form}
-        onSubmit={handleSubmit}
-      >
-        <div className={css.User_Box}>
-          <input
-            type="text"
-            name="username"
-            title="This name will be used for greeting and on 
-						the certificate of test completion"
-            required
-            id="user-name"
-            className={css.Input}
-            placeholder="Enter your first name"
-            pattern="^(?=.{2,24}$)[A-Za-zА-Яа-яІіЇїЄєҐґ]+(?:[- '][A-Za-zА-Яа-яІіЇїЄєҐґ]+)*$"
-          />
-          <label htmlFor="user-password" className={css.Input_hint}>
-            This last name will be used on the certificate of test completion.
-          </label>
+    <Flex
+      bgGradient="linear(to-br, #DCE6FF 8.7%, #FFFFFF 123.75%)"
+      px="5"
+      py="18px"
+      rounded="md"
+      w="460px"
+      mb="3vh"
+    >
+      <Box w="100%" align="center">
+        <form onSubmit={formik.handleSubmit}>
+          <InputGroup pos="relative" display="block">
+            <Flex gap="10px">
+              <Box pos="relative" flexGrow="1">
+                <InputBox
+                  formik={formik}
+                  placeholder="Enter your first name"
+                  isValid={isValid.firstName}
+                  name="firstName"
+                />
+                <Box pos="absolute" top="6px" right="6px">
+                  <FaStarOfLife color="red" size={5} />
+                </Box>
+              </Box>
+              <Flex align="center">
+                <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+              </Flex>
+            </Flex>
+            <Box
+              h="7"
+              my="2px"
+              align="left"
+              fontSize="14px"
+              color="red.400"
+              lineHeight="none"
+            >
+              {formik.errors.firstName &&
+                formik.touched.firstName &&
+                formik.errors.firstName}
+            </Box>
+          </InputGroup>
+          <InputGroup pos="relative" display="block">
+            <Flex gap="10px">
+              <Box pos="relative" flexGrow="1">
+                <InputBox
+                  formik={formik}
+                  placeholder="Enter your last name"
+                  isValid={isValid.lastName}
+                  name="lastName"
+                />
+                <Box pos="absolute" top="6px" right="6px">
+                  <FaStarOfLife color="red" size={5} />
+                </Box>
+              </Box>
+              <Flex align="center">
+                <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+              </Flex>
+            </Flex>
+            <Box
+              h="7"
+              my="2px"
+              align="left"
+              fontSize="14px"
+              color="red.400"
+              lineHeight="none"
+            >
+              {formik.errors.lastName &&
+                formik.touched.lastName &&
+                formik.errors.lastName}
+            </Box>
+          </InputGroup>
+          <InputGroup pos="relative" display="block">
+            <Flex gap="10px">
+              <Box pos="relative" flexGrow="1">
+                <InputBox
+                  formik={formik}
+                  placeholder="Enter your email"
+                  isValid={isValid.email}
+                  name="email"
+                  type="email"
+                />
+                <Box pos="absolute" top="6px" right="6px">
+                  <FaStarOfLife color="red" size={5} />
+                </Box>
+              </Box>
+              <Flex align="center">
+                <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+              </Flex>
+            </Flex>
+            <Box
+              h="7"
+              my="2px"
+              align="left"
+              fontSize="14px"
+              color="red.400"
+              lineHeight="none"
+            >
+              {formik.errors.email &&
+                formik.touched.email &&
+                formik.errors.email}
+            </Box>
+          </InputGroup>
 
-          <div className={css.Form_Error}></div>
-        </div>
-        <div className={css.User_Box}>
-          <input
-            type="text"
-            name="userLastName"
-            title="This last name will be used on 
-						the certificate of test completion."
-            required
-            id="user-name"
-            className={css.Input}
-            placeholder="Enter your last name"
-            pattern="^(?=.{2,24}$)[A-Za-zА-Яа-яІіЇїЄєҐґ]+(?:[- '][A-Za-zА-Яа-яІіЇїЄєҐґ]+)*$"
-          />
-          <label htmlFor="user-password" className={css.Input_hint}>
-            This last name will be used on the certificate of test completion.
-          </label>
+          <InputGroup pos="relative" display="block">
+            <Flex gap="10px">
+              <Box pos="relative" flexGrow="1">
+                <InputBox
+                  formik={formik}
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Enter your password"
+                  isValid={isValid.password}
+                  name="password"
+                />
+                <Box pos="absolute" top="6px" right="6px">
+                  <FaStarOfLife color="red" size={5} />
+                </Box>
 
-          <div className={css.Form_Error}></div>
-        </div>
+                <InputRightElement
+                  pr="4"
+                  mt="0.5"
+                  as="button"
+                  type="button"
+                  onClick={handleTogglePassword}
+                  w="10"
+                  h="10"
+                  color="gray"
+                  cursor="pointer"
+                >
+                  {showPassword ? (
+                    <AiOutlineEye size={30} />
+                  ) : (
+                    <RiEyeCloseLine size={30} />
+                  )}
+                </InputRightElement>
+              </Box>
+              <Flex align="center">
+                <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+              </Flex>
+            </Flex>
+            <Box
+              h="7"
+              my="2px"
+              align="left"
+              fontSize="14px"
+              color="red.400"
+              lineHeight="none"
+            >
+              {formik.errors.password &&
+                formik.touched.password &&
+                formik.errors.password}
+            </Box>
+          </InputGroup>
 
-        <div className={css.User_Box}>
-          <input
-            type="email"
-            name="userEmail"
-            required
-            id="user-email"
-            placeholder="Enter your email"
-            className={css.Input}
-            title="This email will be used for your login,
-						notifications and password recovery. 
-						We don’t send spam."
-            pattern="^(?=.{10,63}$)[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$"
-          />
-          <label htmlFor="user-email" className={css.Input_hint}>
-            This email will be used for your login, notifications and password
-            recovery. We don’t send spam.
-          </label>
-          <div className={css.Form_Error}></div>
-        </div>
+          <CustomButton type="submit" mb="7">
+            Sign up
+          </CustomButton>
+        </form>
 
-        <div className={css.User_Box}>
-          <input
-            type={showPassword ? 'text' : 'password'}
-            name="userPassword"
-            id="user-password"
-            placeholder="Enter your password"
-            required
-            className={css.Input}
-            title="The password must contain a capital and 
-						lowercase letter and numbers, with no
-						fewer than 8 characters."
-            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\\|,.<>\?]).{8,32}$"
-          />
-          <label htmlFor="user-password" className={css.Input_hint}>
-            The password must contain a capital and lowercase letter and
-            numbers, with no fewer than 8 characters.
-          </label>
-          <button
-            type="button"
-            onClick={handleTogglePassword}
-            className={css.Password_btn}
+        <div>
+          <Text
+            align="baseline"
+            justify="center"
+            mb="1"
+            lineHeight="1.37"
+            color="blue.900"
+            fontSize="14px"
           >
-            {showPassword ? (
-              <RiEyeCloseLine size={30} />
-            ) : (
-              <AiOutlineEye size={30} />
-            )}
-          </button>
-
-          <div className={css.Form_Error}></div>
+            Have an account already?
+            <button type="button" cursor="pointer" onClick={isOnLogin}>
+              <Text as="u" fontWeight="700" pl="3px" color="blue.900">
+                Sign in here
+              </Text>
+            </button>
+          </Text>
         </div>
-
-        {/*<div className={css.Checkbox_signUp}>
-          <CustomCheckbox
-            id="signUpCheckbox"
-            onChange={handleCheck}
-            isChecked={isChecked}
-          >
-            <div className={css.Privacy_desr}>
-              By creating this account you agree to the{' '}
-              <span>terms of use</span> and <span>privacy policy</span>
-            </div>
-          </CustomCheckbox>
-        </div>*/}
-
-        <Button type="submit" colorType="button--blue" disabled={false}>
-          Sign Up
-        </Button>
-      </form>
-
-      <div className={css.Redirected}>
-        Have an account already?
-        <button
-          type="button"
-          className={css.Redirected_link}
-          onClick={isOnLogin}
-        >
-          Sign in here.
-        </button>
-      </div>
-    </div>
+      </Box>
+    </Flex>
   );
 };

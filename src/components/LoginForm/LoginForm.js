@@ -3,7 +3,6 @@ import { useFormik } from 'formik';
 import { AiOutlineEye } from 'react-icons/ai';
 import { RiEyeCloseLine } from 'react-icons/ri';
 import {
-  Input,
   Button,
   InputGroup,
   InputRightElement,
@@ -11,9 +10,15 @@ import {
   Box,
   Text,
 } from '@chakra-ui/react';
+import { CustomButton, InputBox } from 'components';
+import { validateEmail, validatePassword } from 'services';
 
 export const LoginForm = ({ isOnLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [isValid, setIsValid] = useState({
+    email: false,
+    password: false,
+  });
 
   const handleTogglePassword = () => setShowPassword(!showPassword);
 
@@ -24,38 +29,19 @@ export const LoginForm = ({ isOnLogin }) => {
     },
     validate: values => {
       const errors = {};
-      if (!values.email) {
-        errors.email = 'Required';
-      } else if (values.email.length < 10) {
-        errors.email = 'Email must be at least 10 symbols long';
-      } else if (values.email.length > 63) {
-        errors.email = 'Email must be at most 63 symbols long';
-      } else if (
-        values.email.indexOf('@') === -1 ||
-        values.email.indexOf('.') === -1
-      ) {
-        errors.email = 'Your email is missing @ or dot in the domain';
-      } else if (
-        !/^(?=.{10,63}$)[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$/i.test(
-          values.email
-        )
-      ) {
-        errors.email =
-          'Email must contain only Latin letters, may contain digits and/or special symbols';
+      const errorEmail = validateEmail(values);
+      if (!errorEmail) {
+        setIsValid(prevState => ({ ...prevState, email: true }));
+      } else {
+        setIsValid(prevState => ({ ...prevState, email: false }));
+        errors.email = errorEmail;
       }
-      if (!values.password) {
-        errors.password = 'Required';
-      } else if (values.password.length < 8) {
-        errors.password = 'Password must be at least 8 symbols long';
-      } else if (values.password.length > 32) {
-        errors.password = 'Password must be at most 32 symbols long';
-      } else if (
-        !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\\|,.<>?]).{8,32}$/i.test(
-          values.password
-        )
-      ) {
-        errors.password =
-          'Password does not comply with the required template. Please, write a valid password';
+      const errorPassword = validatePassword(values);
+      if (!errorPassword) {
+        setIsValid(prevState => ({ ...prevState, password: true }));
+      } else {
+        setIsValid(prevState => ({ ...prevState, password: false }));
+        errors.password = errorPassword;
       }
       return errors;
     },
@@ -77,27 +63,13 @@ export const LoginForm = ({ isOnLogin }) => {
       <Box w="100%" align="center">
         <form onSubmit={formik.handleSubmit}>
           <InputGroup pos="relative" display="block">
-            <Input
-              pl="6"
-              py="2.5"
-              bg="white"
-              border={formik.errors.email ? '1px solid #E0729B' : 'none'}
-              color="blue.900"
-              boxShadow="inset 1px 1px 1px rgba(92, 129, 225, 0.32)"
-              size="md"
-              type="email"
-              name="email"
-              required
-              id="email"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+            <InputBox
+              formik={formik}
               placeholder="Enter your email"
-              _placeholder={{ color: 'gray', fontSize: '20px' }}
-              value={formik.values.email}
+              isValid={isValid.email}
+              name="email"
+              type="email"
             />
-            {/* <InputRightElement
-              children={<FaStarOfLife color="red" size={5} />}
-            /> */}
             <Box
               h="5"
               my="4px"
@@ -113,23 +85,12 @@ export const LoginForm = ({ isOnLogin }) => {
           </InputGroup>
 
           <InputGroup pos="relative" display="block">
-            <Input
-              pl="6"
-              py="2.5"
-              bg="white"
-              border={formik.errors.password ? '1px solid #E0729B' : 'none'}
-              color="blue.900"
-              boxShadow="inset 1px 1px 1px rgba(92, 129, 225, 0.32)"
-              size="md"
-              type={showPassword ? 'text' : 'password'}
-              name="password"
-              required
-              id="user-password"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+            <InputBox
+              formik={formik}
               placeholder="Enter your password"
-              _placeholder={{ color: 'gray', fontSize: '20px' }}
-              value={formik.values.password}
+              isValid={isValid.password}
+              name="password"
+              type={showPassword ? 'text' : 'password'}
             />
 
             <InputRightElement
@@ -164,19 +125,9 @@ export const LoginForm = ({ isOnLogin }) => {
             </Box>
           </InputGroup>
 
-          <Button
-            type="submit"
-            bg="blue.400"
-            px="27px"
-            py="11px"
-            fontSize="20px"
-            fontWeight="700"
-            lineHeight="base"
-            color="white"
-            mb="6"
-          >
+          <CustomButton type="submit" mb="6" disabled={false}>
             Sign in
-          </Button>
+          </CustomButton>
         </form>
 
         <div>

@@ -1,4 +1,4 @@
-import { Button, Section, SelectList } from 'components';
+import { CustomButton, Section, SelectList } from 'components';
 import React from 'react';
 import languages from 'services/languages';
 import css from './Welcome.module.css';
@@ -17,9 +17,9 @@ export const Welcome = () => {
             will hover over with your cursor.
           </p>
           <SelectList languages={languages} />
-          <Button type="button" disabled={false}>
+          <CustomButton type="button" disabled={false}>
             Start testing
-          </Button>
+          </CustomButton>
         </div>
       </Section>
     </>

@@ -19,7 +19,7 @@ export const Home = () => {
             mt="0"
             color="blue.900"
             mb="35px"
-            maxW="30vw"
+            maxW="35vw"
           >
             It’s time to
             <Text as="span" color="blue.400" mx="2.5">

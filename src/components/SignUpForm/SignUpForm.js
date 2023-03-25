@@ -6,6 +6,7 @@ import {
   Flex,
   Box,
   Text,
+  Tooltip,
 } from '@chakra-ui/react';
 import { InputBox, CustomButton } from 'components';
 import { AiOutlineEye } from 'react-icons/ai';
@@ -20,6 +21,7 @@ import {
 } from 'services';
 export const SignUpForm = ({ isOnLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
   const [isValid, setIsValid] = useState({
     firstName: false,
     lastName: false,
@@ -27,6 +29,7 @@ export const SignUpForm = ({ isOnLogin }) => {
     password: false,
   });
   const handleTogglePassword = () => setShowPassword(!showPassword);
+  const handleToogleTooltip = () => setShowTooltip(!showTooltip);
 
   const formik = useFormik({
     initialValues: {
@@ -97,8 +100,36 @@ export const SignUpForm = ({ isOnLogin }) => {
                   <FaStarOfLife color="red" size={5} />
                 </Box>
               </Box>
+
               <Flex align="center">
-                <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+                <Tooltip
+                  hasArrow
+                  label="First name will be used for greeting and on the certificate of test completion."
+                  bg="#FFF5DE"
+                  color="blue.900"
+                  boxShadow="3px 3px 4px rgba(137, 150, 183, 0.2)"
+                  borderRadius="5"
+                  textAlign="center"
+                  pos="absolute"
+                  bottom="1"
+                  left="13"
+                  w="100%"
+                  maxW="270"
+                  px={3}
+                  py={1}
+                  placement="top-end"
+                  arrowSize={14}
+                  arrowPadding={17}
+                  isOpen={showTooltip}
+                >
+                  <span>
+                    <ImInfo
+                      size={20}
+                      color="rgba(17, 31, 66, 0.56)"
+                      onClick={handleToogleTooltip}
+                    />
+                  </span>
+                </Tooltip>
               </Flex>
             </Flex>
             <Box
@@ -226,7 +257,17 @@ export const SignUpForm = ({ isOnLogin }) => {
             </Box>
           </InputGroup>
 
-          <CustomButton type="submit" mb="7">
+          <CustomButton
+            type="submit"
+            mb="7"
+            disabled={
+              !formik.dirty ||
+              !isValid.firstName ||
+              !isValid.lastName ||
+              !isValid.email ||
+              !isValid.password
+            }
+          >
             Sign up
           </CustomButton>
         </form>

@@ -124,7 +124,11 @@ export const LoginForm = ({ isOnLogin }) => {
             </Box>
           </InputGroup>
 
-          <CustomButton type="submit" mb="6" disabled={false}>
+          <CustomButton
+            type="submit"
+            mb="6"
+            disabled={!isValid.email || !isValid.password}
+          >
             Sign in
           </CustomButton>
         </form>

@@ -6,9 +6,12 @@ export const validatePassword = values => {
   } else if (values.password.length > 32) {
     return 'Password must be at most 32 symbols long';
   } else if (
-    !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\\|,.<>?]).{8,32}$/i.test(
+    !/^(?=.*?[!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z])[A-Za-z0-9!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]{8,32}$/.test(
       values.password
     )
+    //!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\\|,.<>?]).{8,32}$/i.test(
+    //  values.password
+    //)
   ) {
     return 'Password does not comply with the required template. Please, write a valid password';
   } else {

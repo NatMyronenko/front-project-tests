@@ -7,7 +7,7 @@ import {
   Box,
   Text,
 } from '@chakra-ui/react';
-import { InputBox, CustomButton } from 'components';
+import { InputBox, CustomButton, CustomTooltip } from 'components';
 import { AiOutlineEye } from 'react-icons/ai';
 import { ImInfo } from 'react-icons/im';
 import { FaStarOfLife } from 'react-icons/fa';
@@ -18,6 +18,7 @@ import {
   validateEmail,
   validatePassword,
 } from 'services';
+
 export const SignUpForm = ({ isOnLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isValid, setIsValid] = useState({
@@ -97,8 +98,13 @@ export const SignUpForm = ({ isOnLogin }) => {
                   <FaStarOfLife color="red" size={5} />
                 </Box>
               </Box>
+
               <Flex align="center">
-                <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+                <CustomTooltip textTooltip="First name will be used for greeting and on the certificate of test completion.">
+                  <span>
+                    <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+                  </span>
+                </CustomTooltip>
               </Flex>
             </Flex>
             <Box
@@ -128,7 +134,12 @@ export const SignUpForm = ({ isOnLogin }) => {
                 </Box>
               </Box>
               <Flex align="center">
-                <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+                <CustomTooltip textTooltip="Last name will be used on the certificate of test completion.">
+                  <span>
+                    <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+                  </span>
+                </CustomTooltip>
+                {/*<ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />*/}
               </Flex>
             </Flex>
             <Box
@@ -159,7 +170,12 @@ export const SignUpForm = ({ isOnLogin }) => {
                 </Box>
               </Box>
               <Flex align="center">
-                <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+                <CustomTooltip textTooltip="Email will be used for your login and notifications. We don’t send spam.">
+                  <span>
+                    <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+                  </span>
+                </CustomTooltip>
+                {/*<ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />*/}
               </Flex>
             </Flex>
             <Box
@@ -209,7 +225,12 @@ export const SignUpForm = ({ isOnLogin }) => {
                 </InputRightElement>
               </Box>
               <Flex align="center">
-                <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+                <CustomTooltip textTooltip="Password must be at least 8 symbols long and contain upper and lowercase Latin letters, digits and at least one special character.">
+                  <span>
+                    <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+                  </span>
+                </CustomTooltip>
+                {/*<ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />*/}
               </Flex>
             </Flex>
             <Box
@@ -226,7 +247,17 @@ export const SignUpForm = ({ isOnLogin }) => {
             </Box>
           </InputGroup>
 
-          <CustomButton type="submit" mb="7">
+          <CustomButton
+            type="submit"
+            mb="7"
+            disabled={
+              !formik.dirty ||
+              !isValid.firstName ||
+              !isValid.lastName ||
+              !isValid.email ||
+              !isValid.password
+            }
+          >
             Sign up
           </CustomButton>
         </form>

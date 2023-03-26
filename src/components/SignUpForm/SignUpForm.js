@@ -6,9 +6,8 @@ import {
   Flex,
   Box,
   Text,
-  Tooltip,
 } from '@chakra-ui/react';
-import { InputBox, CustomButton } from 'components';
+import { InputBox, CustomButton, CustomTooltip } from 'components';
 import { AiOutlineEye } from 'react-icons/ai';
 import { ImInfo } from 'react-icons/im';
 import { FaStarOfLife } from 'react-icons/fa';
@@ -19,6 +18,7 @@ import {
   validateEmail,
   validatePassword,
 } from 'services';
+
 export const SignUpForm = ({ isOnLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
@@ -102,25 +102,9 @@ export const SignUpForm = ({ isOnLogin }) => {
               </Box>
 
               <Flex align="center">
-                <Tooltip
-                  hasArrow
-                  label="First name will be used for greeting and on the certificate of test completion."
-                  bg="#FFF5DE"
-                  color="blue.900"
-                  boxShadow="3px 3px 4px rgba(137, 150, 183, 0.2)"
-                  borderRadius="5"
-                  textAlign="center"
-                  pos="absolute"
-                  bottom="1"
-                  left="13"
-                  w="100%"
-                  maxW="270"
-                  px={3}
-                  py={1}
-                  placement="top-end"
-                  arrowSize={14}
-                  arrowPadding={17}
-                  isOpen={showTooltip}
+                <CustomTooltip
+                  textTooltip="First name will be used for greeting and on the certificate of test completion"
+                  onOpen={showTooltip}
                 >
                   <span>
                     <ImInfo
@@ -129,7 +113,7 @@ export const SignUpForm = ({ isOnLogin }) => {
                       onClick={handleToogleTooltip}
                     />
                   </span>
-                </Tooltip>
+                </CustomTooltip>
               </Flex>
             </Flex>
             <Box
@@ -159,7 +143,19 @@ export const SignUpForm = ({ isOnLogin }) => {
                 </Box>
               </Box>
               <Flex align="center">
-                <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+                <CustomTooltip
+                  textTooltip="Last name will be used on the certificate of test completion"
+                  onOpen={showTooltip}
+                >
+                  <span>
+                    <ImInfo
+                      size={20}
+                      color="rgba(17, 31, 66, 0.56)"
+                      onClick={handleToogleTooltip}
+                    />
+                  </span>
+                </CustomTooltip>
+                {/*<ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />*/}
               </Flex>
             </Flex>
             <Box
@@ -190,7 +186,19 @@ export const SignUpForm = ({ isOnLogin }) => {
                 </Box>
               </Box>
               <Flex align="center">
-                <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+                <CustomTooltip
+                  textTooltip="Email will be used for your login, notifications, and password recovery. We don’t send spam"
+                  onOpen={showTooltip}
+                >
+                  <span>
+                    <ImInfo
+                      size={20}
+                      color="rgba(17, 31, 66, 0.56)"
+                      onClick={handleToogleTooltip}
+                    />
+                  </span>
+                </CustomTooltip>
+                {/*<ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />*/}
               </Flex>
             </Flex>
             <Box
@@ -240,7 +248,19 @@ export const SignUpForm = ({ isOnLogin }) => {
                 </InputRightElement>
               </Box>
               <Flex align="center">
-                <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
+                <CustomTooltip
+                  textTooltip="Password must be at least 8 symbols long and contain upper and lowercase Latin letters, digits and at least one special character"
+                  onOpen={showTooltip}
+                >
+                  <span>
+                    <ImInfo
+                      size={20}
+                      color="rgba(17, 31, 66, 0.56)"
+                      onClick={handleToogleTooltip}
+                    />
+                  </span>
+                </CustomTooltip>
+                {/*<ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />*/}
               </Flex>
             </Flex>
             <Box

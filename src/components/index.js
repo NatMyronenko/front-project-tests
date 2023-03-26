@@ -14,3 +14,4 @@ export * from './SelectItem/SelectItem';
 export * from './QuestionItem/QuestionItem';
 export * from './Answer/Answer';
 export * from './InputBox/InputBox';
+export * from './customTooltip/CustomTooltip';

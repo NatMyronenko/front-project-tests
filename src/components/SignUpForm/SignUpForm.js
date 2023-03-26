@@ -21,7 +21,6 @@ import {
 
 export const SignUpForm = ({ isOnLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
   const [isValid, setIsValid] = useState({
     firstName: false,
     lastName: false,
@@ -29,7 +28,6 @@ export const SignUpForm = ({ isOnLogin }) => {
     password: false,
   });
   const handleTogglePassword = () => setShowPassword(!showPassword);
-  const handleToogleTooltip = () => setShowTooltip(!showTooltip);
 
   const formik = useFormik({
     initialValues: {
@@ -102,16 +100,9 @@ export const SignUpForm = ({ isOnLogin }) => {
               </Box>
 
               <Flex align="center">
-                <CustomTooltip
-                  textTooltip="First name will be used for greeting and on the certificate of test completion"
-                  onOpen={showTooltip}
-                >
+                <CustomTooltip textTooltip="First name will be used for greeting and on the certificate of test completion.">
                   <span>
-                    <ImInfo
-                      size={20}
-                      color="rgba(17, 31, 66, 0.56)"
-                      onClick={handleToogleTooltip}
-                    />
+                    <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
                   </span>
                 </CustomTooltip>
               </Flex>
@@ -143,16 +134,9 @@ export const SignUpForm = ({ isOnLogin }) => {
                 </Box>
               </Box>
               <Flex align="center">
-                <CustomTooltip
-                  textTooltip="Last name will be used on the certificate of test completion"
-                  onOpen={showTooltip}
-                >
+                <CustomTooltip textTooltip="Last name will be used on the certificate of test completion.">
                   <span>
-                    <ImInfo
-                      size={20}
-                      color="rgba(17, 31, 66, 0.56)"
-                      onClick={handleToogleTooltip}
-                    />
+                    <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
                   </span>
                 </CustomTooltip>
                 {/*<ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />*/}
@@ -186,16 +170,9 @@ export const SignUpForm = ({ isOnLogin }) => {
                 </Box>
               </Box>
               <Flex align="center">
-                <CustomTooltip
-                  textTooltip="Email will be used for your login, notifications, and password recovery. We don’t send spam"
-                  onOpen={showTooltip}
-                >
+                <CustomTooltip textTooltip="Email will be used for your login and notifications. We don’t send spam.">
                   <span>
-                    <ImInfo
-                      size={20}
-                      color="rgba(17, 31, 66, 0.56)"
-                      onClick={handleToogleTooltip}
-                    />
+                    <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
                   </span>
                 </CustomTooltip>
                 {/*<ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />*/}
@@ -248,16 +225,9 @@ export const SignUpForm = ({ isOnLogin }) => {
                 </InputRightElement>
               </Box>
               <Flex align="center">
-                <CustomTooltip
-                  textTooltip="Password must be at least 8 symbols long and contain upper and lowercase Latin letters, digits and at least one special character"
-                  onOpen={showTooltip}
-                >
+                <CustomTooltip textTooltip="Password must be at least 8 symbols long and contain upper and lowercase Latin letters, digits and at least one special character.">
                   <span>
-                    <ImInfo
-                      size={20}
-                      color="rgba(17, 31, 66, 0.56)"
-                      onClick={handleToogleTooltip}
-                    />
+                    <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
                   </span>
                 </CustomTooltip>
                 {/*<ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />*/}

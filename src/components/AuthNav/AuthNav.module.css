@@ -1,0 +1,24 @@
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.link.active {
+  color: #e84a5f;
+}
+.Header_button {
+  font-family: 'Sofia Sans';
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--color-darkblue);
+  margin-left: 20px;
+  padding: 5px;
+  border: none;
+  outline: none;
+  background: #f4f7ff;
+  border-radius: 2px;
+}

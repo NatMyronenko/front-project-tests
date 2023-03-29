@@ -8,7 +8,6 @@ export * from './Section/Section';
 export * from './SignUpForm/SignUpForm';
 export * from './Wraper/Wraper.styled';
 export * from './Metrics/Metrics';
-export * from './CustomCheckbox/CustomCheckbox';
 export * from './SelectList/SelectList';
 export * from './SelectItem/SelectItem';
 export * from './QuestionItem/QuestionItem';

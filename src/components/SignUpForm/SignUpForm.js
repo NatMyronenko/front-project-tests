@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import {
   InputGroup,
@@ -18,6 +19,7 @@ import {
   validateEmail,
   validatePassword,
 } from 'services';
+import { signUpUser } from 'redux/user/operations/operations';
 
 export const SignUpForm = ({ isOnLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -27,6 +29,7 @@ export const SignUpForm = ({ isOnLogin }) => {
     email: false,
     password: false,
   });
+  const dispatch = useDispatch();
   const handleTogglePassword = () => setShowPassword(!showPassword);
 
   const formik = useFormik({
@@ -69,9 +72,13 @@ export const SignUpForm = ({ isOnLogin }) => {
       return errors;
     },
     onSubmit: values => {
-      //  e.preventDefault();
-
-      console.log(values);
+      dispatch(
+        signUpUser({
+          name: values.firstName + ' ' + values.lastName,
+          email: values.email,
+          password: values.password,
+        })
+      );
     },
   });
   return (

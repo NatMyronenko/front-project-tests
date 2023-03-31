@@ -79,6 +79,7 @@ export const SignUpForm = ({ isOnLogin }) => {
           password: values.password,
         })
       );
+      formik.resetForm();
     },
   });
   return (

@@ -11,6 +11,8 @@ import {
 } from '@chakra-ui/react';
 import { CustomButton, InputBox } from 'components';
 import { validateEmail, validatePassword } from 'services';
+import { logInUser } from 'redux/user/operations/operations';
+import { useDispatch } from 'react-redux';
 
 export const LoginForm = ({ isOnLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,7 +20,7 @@ export const LoginForm = ({ isOnLogin }) => {
     email: false,
     password: false,
   });
-
+  const dispatch = useDispatch();
   const handleTogglePassword = () => setShowPassword(!showPassword);
 
   const formik = useFormik({
@@ -45,9 +47,13 @@ export const LoginForm = ({ isOnLogin }) => {
       return errors;
     },
     onSubmit: values => {
-      //  e.preventDefault();
-
-      console.log(values);
+      dispatch(
+        logInUser({
+          email: values.email,
+          password: values.password,
+        })
+      );
+      formik.resetForm();
     },
   });
   return (

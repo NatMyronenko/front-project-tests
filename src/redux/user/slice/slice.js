@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signUpUser } from '../operations/operations';
+import { signUpUser, logInUser } from '../operations/operations';
 
 const initialState = {
   user: {
@@ -17,6 +17,11 @@ export const userSlice = createSlice({
   initialState,
   extraReducers: {
     [signUpUser.fulfilled](state, action) {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+      state.isLoggedIn = true;
+    },
+    [logInUser.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;

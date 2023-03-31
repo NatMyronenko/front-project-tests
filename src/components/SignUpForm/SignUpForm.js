@@ -147,7 +147,6 @@ export const SignUpForm = ({ isOnLogin }) => {
                     <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
                   </span>
                 </CustomTooltip>
-                {/*<ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />*/}
               </Flex>
             </Flex>
             <Box
@@ -183,7 +182,6 @@ export const SignUpForm = ({ isOnLogin }) => {
                     <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
                   </span>
                 </CustomTooltip>
-                {/*<ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />*/}
               </Flex>
             </Flex>
             <Box
@@ -238,7 +236,6 @@ export const SignUpForm = ({ isOnLogin }) => {
                     <ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />
                   </span>
                 </CustomTooltip>
-                {/*<ImInfo size={20} color="rgba(17, 31, 66, 0.56)" />*/}
               </Flex>
             </Flex>
             <Box

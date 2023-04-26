@@ -16,6 +16,12 @@ export const theme = extendTheme({
       400: '#E0729B',
       900: '#ff0000',
     },
+    green: {
+      400: '#26992E',
+    },
+    pink: {
+      400: '#E0729B',
+    },
   },
   fonts: {
     body: 'Lato, sans-serif',

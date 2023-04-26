@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '@chakra-ui/react';
 
-export const CustomButton = ({ children, disabled, type, mb }) => {
+export const CustomButton = ({ children, disabled, type, mb, redirect }) => {
   return (
     <>
       <Button

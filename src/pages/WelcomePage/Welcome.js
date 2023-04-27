@@ -1,26 +1,54 @@
 import { CustomButton, Section, SelectList } from 'components';
 import React from 'react';
 import languages from 'services/languages';
-import css from './Welcome.module.css';
+import { Box, Heading, Text } from '@chakra-ui/react';
 
 export const Welcome = () => {
   return (
     <>
       <Section>
-        <div className={css.Welcome_block}>
-          <h2 className={css.Welcome_title}>Welcome to the test board!</h2>
-          <p className={css.Welcome_subtitle}>
-            Here you can choose the test you want to complete a test.
-          </p>
-          <p className={css.Welcome_text}>
-            Here you will see a description of each item on the test that you
-            will hover over with your cursor.
-          </p>
+        <Box mx="auto" textAlign="center" mt="40px" mb="200px">
+          <Heading
+            fontWeight="600"
+            fontSize="28px"
+            lineHeight="34px"
+            textAlign="center"
+            mb="4"
+            color="blue.400"
+          >
+            Welcome to the test board!
+          </Heading>
+          <Text
+            fontWeight="400"
+            fontSize="16px"
+            lineHeight="19px"
+            color="blue.900"
+            mb="6"
+          >
+            Choose the test category you want to check your knowledge in.
+          </Text>
+          <Box mb="9">
+            <Text
+              fontWeight="400"
+              fontSize="15px"
+              lineHeight="18px"
+              textAlign="center"
+              color="#E0B346"
+            >
+              Hey, we're gonna add more test languages here soon!
+            </Text>
+            <Text
+              fontWeight="400"
+              fontSize="15px"
+              lineHeight="18px"
+              textAlign="center"
+              color="#E0B346"
+            >
+              Now, we invite you to take Java and JavaScript tests.
+            </Text>
+          </Box>
           <SelectList languages={languages} />
-          <CustomButton type="button" disabled={false}>
-            Start testing
-          </CustomButton>
-        </div>
+        </Box>
       </Section>
     </>
   );

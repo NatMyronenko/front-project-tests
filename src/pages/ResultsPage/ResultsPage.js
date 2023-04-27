@@ -1,12 +1,12 @@
-import { ButtonGroup, Stack, Text } from '@chakra-ui/react';
+import { Button, Flex, Stack, Text, Icon, Box } from '@chakra-ui/react';
 import { CustomButton, Section } from 'components';
-
+import arrowSvg from 'img/sprite.svg';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { selectIsLoggedIn } from 'redux/user/slice/slice';
 
-const testScore = 55;
+const testScore = 60;
 const percentCorrectAnswers = 80;
 
 export const ResultsPage = () => {
@@ -33,7 +33,7 @@ export const ResultsPage = () => {
         {testScore > percentCorrectAnswers ? (
           <>
             <Text
-              color="green.400"
+              color="green.700"
               fontWeight={700}
               fontSize="24px"
               lineHeight="29px"
@@ -50,7 +50,7 @@ export const ResultsPage = () => {
               You have passed the test <br /> and received {''}
               <Text
                 as="span"
-                color="green.400"
+                color="green.700"
                 fontWeight={700}
                 fontSize="30px"
                 lineHeight="36px"
@@ -119,10 +119,62 @@ export const ResultsPage = () => {
             </Text>
           </>
         )}
-        <ButtonGroup gap={'130px'} pt="58px">
-          <CustomButton disabled={false}>Try again</CustomButton>
-          <CustomButton disabled={false}>Finish</CustomButton>
-        </ButtonGroup>
+
+        <Flex pt="27px" gap="130px">
+          <Box>
+            <Icon
+              mr="22px"
+              width="66.5px"
+              height="8px"
+              viewBox="0 0 67 8"
+              fill="blue.900"
+              alignSelf="center"
+              transform="rotate(180deg)"
+            >
+              <use href={arrowSvg + '#icon-bigArrow'}></use>
+            </Icon>
+            <Button
+              bg="green.400"
+              py="11px"
+              minW="113px"
+              minH="45px"
+              fontSize="20px"
+              fontWeight="700"
+              lineHeight="base"
+              color="white"
+              borderRadius="5px"
+              boxShadow="3px 3px 4px rgba(137, 150, 183, 0.2);"
+              transition=" background-color .2s ease-in-out"
+              _hover={{
+                bg: 'green.700',
+                boxShadow: ' 3px 3px 4px rgba(137, 150, 183, 0.2)',
+              }}
+              _focus={{
+                bg: 'green.700',
+                boxShadow: ' 3px 3px 4px rgba(137, 150, 183, 0.2)',
+              }}
+              _active={{
+                bg: 'green.700',
+                boxShadow: 'inset 4px 4px 4px #2E7E33;',
+              }}
+            >
+              Try again
+            </Button>
+          </Box>
+          <Box>
+            <CustomButton disabled={false}>Finish</CustomButton>
+            <Icon
+              ml="22px"
+              width="66.5px"
+              height="8px"
+              viewBox="0 0 67 8"
+              fill="blue.900"
+              alignSelf="center"
+            >
+              <use href={arrowSvg + '#icon-bigArrow'}></use>
+            </Icon>
+          </Box>
+        </Flex>
       </Stack>
     </Section>
   );

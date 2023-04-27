@@ -8,12 +8,15 @@ export const CustomButton = ({ children, disabled, type, mb, redirect }) => {
       <Button
         type={type}
         bg="blue.400"
-        px="27px"
-        py="11px"
+        minW="113px"
+        minH="45px"
+        //px="27px"
+        //py="11px"
         fontSize="20px"
         fontWeight="700"
         lineHeight="base"
         color="white"
+        borderRadius="5px"
         boxShadow="3px 3px 4px rgba(137, 150, 183, 0.2)"
         isDisabled={disabled}
         mb={mb}

@@ -220,7 +220,7 @@ export const SignUpForm = ({ isOnLogin }) => {
                   onClick={handleTogglePassword}
                   w="10"
                   h="10"
-                  color="gray"
+                  color="gray.400"
                   cursor="pointer"
                 >
                   {showPassword ? (

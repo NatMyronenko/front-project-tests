@@ -11,7 +11,10 @@ export const theme = extendTheme({
       700: '#1F4AB8',
       900: '#111f42',
     },
-    gray: '#bcbcbc',
+    gray: {
+      100: 'rgba(181, 194, 227, 0.15)',
+      400: '#bcbcbc',
+    },
     red: {
       400: '#E0729B',
       900: '#ff0000',
@@ -26,6 +29,7 @@ export const theme = extendTheme({
   },
   fonts: {
     body: 'Lato, sans-serif',
+    heading: 'Lato, sans-serif',
   },
   fontSizes: {
     xs: '0.75rem',

@@ -27,7 +27,7 @@ export const InputBox = ({
       onChange={formik.handleChange}
       onBlur={formik.handleBlur}
       placeholder={placeholder}
-      _placeholder={{ color: 'gray', fontSize: '20px' }}
+      _placeholder={{ color: 'gray.400', fontSize: '20px' }}
       value={formik.values[name]}
     />
   );

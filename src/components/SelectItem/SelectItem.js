@@ -1,67 +1,101 @@
-import React, { useState } from 'react';
+import React from 'react';
 import css from './SelectItem.module.css';
 import Select from 'react-select';
 
-export const SelectItem = ({ language }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
+export const SelectItem = ({ language, setSelectedOption }) => {
   const refineTopics = language => {
     return language.topics.map(item => {
-      return { value: item.name, label: item.name };
+      return {
+        value: item.name,
+        label: item.name,
+        description: item.description,
+        attempts: item.attempts,
+      };
     });
   };
 
   const styles = {
     option: base => ({
       ...base,
-      height: '100%',
-      marginBottom: 2,
-      backgroundColor: 'hsl(223, 100%, 96%)',
-      paddingTop: 14,
-      paddingBottom: 14,
-      paddingLeft: 27,
-      paddingRight: 27,
+      backgroundColor: '#ffffff',
+      paddingTop: 8,
+      paddingBottom: 8,
+      paddingLeft: 24,
+      paddingRight: 24,
+      color: '#5C81E1',
+      fontWeight: 700,
+      fontSize: 18,
+      lineHeight: 1.3,
+      ':hover': {
+        backgroundColor: '#EBF0FF',
+        borderRadius: 3,
+      },
+    }),
+    singleValue: base => ({
+      ...base,
+      color: '#5C81E1',
     }),
     valueContainer: base => ({
       ...base,
-      backgroundColor: 'hsl(223, 100%, 96%)',
-      paddingTop: 12,
-      paddingBottom: 12,
-      paddingLeft: 27,
-      paddingRight: 27,
-      minWidth: 144,
-      fontSize: 27,
+      backgroundColor: 'white',
+      paddingTop: 13,
+      paddingBottom: 13,
+      paddingLeft: 5,
+      paddingRight: 5,
+      color: '#5C81E1',
+      fontSize: 16,
+      fontWeight: 700,
       lineHeight: 1.3,
-      textTransform: 'uppercase',
+      borderRadius: 12,
+      display: 'flex',
+    }),
+    control: base => ({
+      ...base,
+      borderRadius: 12,
+      borderWidth: 0.5,
+
+      borderColor: 'rgba(92, 129, 225, 0.8)',
+      minHeight: 'auto',
     }),
     placeholder: base => ({
       ...base,
-      color: '#111f42',
+      color: '#5C81E1',
+      fontSize: 16,
+      fontWeight: 700,
+      lineHeight: 1.3,
     }),
+
     indicatorsContainer: base => ({
       ...base,
-      backgroundColor: 'hsl(223, 100%, 96%)',
+      backgroundColor: 'white',
+      borderRadius: 12,
+      paddingLeft: 1,
+      paddingRight: 1,
     }),
+
     dropdownIndicator: base => ({
       ...base,
-      color: '#111f42',
+      color: '#transparent',
+      margin: 0,
+      paddingLeft: 2,
+      paddingRight: 2,
     }),
     indicatorSeparator: base => ({
       ...base,
-      color: '#111f42',
+      backgroundColor: 'transparent',
     }),
   };
   return (
     <Select
       styles={styles}
-      defaultValue={selectedOption}
       onChange={setSelectedOption}
       className={css.Select}
       isSearchable={false}
-      placeholder={language.full_name}
+      flexGrow="1"
+      placeholder="Choose a test category"
       options={refineTopics(language)}
       theme={theme => ({
         ...theme,
-        borderRadius: 5,
 
         colors: {
           ...theme.colors,

@@ -1,13 +1,18 @@
 import React from 'react';
-import { SelectItem } from 'components';
-import css from './SelectList.module.css';
+import { List } from '@chakra-ui/react';
+import { ListedItem } from 'components/ListedItem/ListedItem';
 
 export const SelectList = ({ languages }) => {
   return (
-    <ul className={css.SelectList}>
+    <List display="flex" mx="auto" gap="7" flexWrap="wrap">
       {languages.map(item => (
-        <SelectItem language={item} key={item.id} />
+        <ListedItem
+          language={item}
+          key={item.id}
+          id={item.id}
+          icon={item.icon}
+        />
       ))}
-    </ul>
+    </List>
   );
 };

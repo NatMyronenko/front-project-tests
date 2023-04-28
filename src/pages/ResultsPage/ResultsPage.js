@@ -1,24 +1,11 @@
 import { Button, Flex, Stack, Text, Icon, Box } from '@chakra-ui/react';
 import { CustomButton, Section } from 'components';
 import arrowSvg from 'img/sprite.svg';
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { selectIsLoggedIn } from 'redux/user/slice/slice';
 
 const testScore = 60;
 const percentCorrectAnswers = 80;
 
 export const ResultsPage = () => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/', { replace: true });
-    }
-  }, [isLoggedIn, navigate]);
-
   return (
     <Section>
       <Stack textAlign="center" pt="80px" spacing="30px" alignItems="center">
@@ -91,7 +78,7 @@ export const ResultsPage = () => {
               fontSize="20px"
               lineHeight="24px"
             >
-              You have passed the test <br /> and received {''}
+              You have received{''}
               <Text
                 as="span"
                 color="pink.400"

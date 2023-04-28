@@ -38,9 +38,9 @@ export const SelectItem = ({ language, setSelectedOption }) => {
     valueContainer: base => ({
       ...base,
       backgroundColor: 'white',
-      paddingTop: 0,
-      paddingBottom: 0,
-      paddingLeft: 11,
+      paddingTop: 13,
+      paddingBottom: 13,
+      paddingLeft: 5,
       paddingRight: 5,
       color: '#5C81E1',
       fontSize: 16,
@@ -53,6 +53,7 @@ export const SelectItem = ({ language, setSelectedOption }) => {
       ...base,
       borderRadius: 12,
       borderWidth: 0.5,
+
       borderColor: 'rgba(92, 129, 225, 0.8)',
       minHeight: 'auto',
     }),
@@ -63,15 +64,21 @@ export const SelectItem = ({ language, setSelectedOption }) => {
       fontWeight: 700,
       lineHeight: 1.3,
     }),
+
     indicatorsContainer: base => ({
       ...base,
       backgroundColor: 'white',
       borderRadius: 12,
+      paddingLeft: 1,
+      paddingRight: 1,
     }),
+
     dropdownIndicator: base => ({
       ...base,
       color: '#transparent',
       margin: 0,
+      paddingLeft: 2,
+      paddingRight: 2,
     }),
     indicatorSeparator: base => ({
       ...base,

@@ -10,6 +10,7 @@ export * from './Wraper/Wraper.styled';
 export * from './Metrics/Metrics';
 export * from './SelectList/SelectList';
 export * from './SelectItem/SelectItem';
+export * from './ListedItem/ListedItem';
 export * from './QuestionItem/QuestionItem';
 export * from './Answer/Answer';
 export * from './InputBox/InputBox';

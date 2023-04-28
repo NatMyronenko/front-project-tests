@@ -1,4 +1,4 @@
-import { CustomButton, Section, SelectList } from 'components';
+import { Section, SelectList } from 'components';
 import React from 'react';
 import languages from 'services/languages';
 import { Box, Heading, Text } from '@chakra-ui/react';

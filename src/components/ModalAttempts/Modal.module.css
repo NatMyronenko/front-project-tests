@@ -1,0 +1,39 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(217, 217, 217, 0.69);
+  z-index: 1200;
+}
+
+.Modal {
+  padding: 48px 78px;
+  background: white;
+  box-sizing: border-box;
+  box-shadow: 3px 3px 4px rgba(137, 150, 183, 0.2);
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+}
+
+@media (min-width: 450px) {
+  .Modal {
+    margin: 0 auto;
+    width: 50%;
+    max-width: 500px;
+  }
+}
+.Scroll::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(181, 194, 227, 0.2);
+  border-radius: 12px;
+}
+.Scroll::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+}

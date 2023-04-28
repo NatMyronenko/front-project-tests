@@ -3,7 +3,7 @@ import { selectIsLoggedIn } from 'redux/user/slice/slice';
 import { Box, Flex, Spacer } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import { UserMenu } from 'components/UserMenu/UserMenu';
-import { AuthNav } from 'components/AuthNav/AuthNav';
+//import { AuthNav } from 'components/AuthNav/AuthNav';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
@@ -16,7 +16,8 @@ export const SharedLayout = () => {
           <Flex>
             <Logo />
             <Spacer />
-            {isLoggedIn ? <UserMenu /> : <AuthNav />}
+            {/*{isLoggedIn ? <UserMenu /> : <AuthNav />}*/}
+            {isLoggedIn && <UserMenu />}
           </Flex>
         </Container>
       </Box>

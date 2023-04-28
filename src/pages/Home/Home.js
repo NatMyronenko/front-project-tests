@@ -1,6 +1,7 @@
 import { Flex, Text, Box } from '@chakra-ui/react';
 import { Section, Metrics, SignUpForm, LoginForm } from 'components';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
   const [isOnLogin, setIsOnLogin] = useState(false);
@@ -50,6 +51,15 @@ export const Home = () => {
             tests. You can easily check how much you know and prepare for a
             successful job interview.
           </Text>
+          <Link
+            to="/results"
+            style={{
+              backgroundColor: 'red',
+            }}
+          >
+            {' '}
+            go to results
+          </Link>
         </Flex>
 
         {isOnLogin ? (

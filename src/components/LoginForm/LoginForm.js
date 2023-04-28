@@ -13,6 +13,7 @@ import { CustomButton, InputBox } from 'components';
 import { validateEmail, validatePassword } from 'services';
 import { logInUser } from 'redux/user/operations/operations';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = ({ isOnLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +21,9 @@ export const LoginForm = ({ isOnLogin }) => {
     email: false,
     password: false,
   });
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const handleTogglePassword = () => setShowPassword(!showPassword);
 
   const formik = useFormik({
@@ -54,6 +57,7 @@ export const LoginForm = ({ isOnLogin }) => {
         })
       );
       formik.resetForm();
+      navigate('/welcome', { replace: true });
     },
   });
   return (

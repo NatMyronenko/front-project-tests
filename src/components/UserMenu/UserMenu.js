@@ -6,8 +6,11 @@ import { IoPersonCircleSharp } from 'react-icons/io5';
 import { FiLogOut } from 'react-icons/fi';
 import { selectUser } from 'redux/user/slice/slice';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { ModalUserLogOut } from 'components/ModalUserLogOut/ModalUserLogOut';
 
 export const UserMenu = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   // const dispatch = useDispatch();
   const { user } = useSelector(selectUser);
 
@@ -47,10 +50,14 @@ export const UserMenu = () => {
         }}
         // onClick={() => dispatch(logOutUser())}
         onClick={() => {
-          console.log('click LogOut');
+          setIsModalOpen(true);
         }}
         icon={<FiLogOut />}
       />
+
+      {isModalOpen && (
+        <ModalUserLogOut onClose={setIsModalOpen} formType="user-logOut" />
+      )}
     </Flex>
   );
 };

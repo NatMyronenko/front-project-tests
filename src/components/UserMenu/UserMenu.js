@@ -11,7 +11,9 @@ import { ModalUserLogOut } from 'components/ModalUserLogOut/ModalUserLogOut';
 
 export const UserMenu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const dispatch = useDispatch();
+  const handleToogleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   const { user } = useSelector(selectUser);
 
   return (
@@ -56,7 +58,7 @@ export const UserMenu = () => {
       />
 
       {isModalOpen && (
-        <ModalUserLogOut onClose={setIsModalOpen} formType="user-logOut" />
+        <ModalUserLogOut onClose={handleToogleModal} formType="user-logOut" />
       )}
     </Flex>
   );

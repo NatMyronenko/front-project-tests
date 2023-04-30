@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signUpUser, logInUser } from '../operations/operations';
+import {
+  signUpUser,
+  logInUser,
+  fetchUser,
+  logOutUser,
+} from '../operations/operations';
 
 const initialState = {
   user: {
@@ -26,8 +31,25 @@ export const userSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+    [logOutUser.fulfilled](state) {
+      state.user = { name: '', email: '' };
+      state.token = null;
+      state.isLoggedIn = false;
+    },
+    [fetchUser.pending](state) {
+      state.isRefreshing = true;
+    },
+    [fetchUser.fulfilled](state, action) {
+      state.user = action.payload;
+      state.isLoggedIn = true;
+      state.isRefreshing = false;
+    },
+    [fetchUser.rejected](state) {
+      state.isRefreshing = false;
+    },
   },
 });
 
 export const selectIsLoggedIn = state => state.user.isLoggedIn;
 export const selectUser = state => state.user;
+export const selectIsRefreshing = state => state.user.isRefreshing;

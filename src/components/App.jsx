@@ -8,8 +8,16 @@ import {
   ResultsPage,
   Account,
 } from 'pages';
+import { useDispatch } from 'react-redux';
+
+import { useEffect } from 'react';
+import { fetchUser } from 'redux/user/operations/operations';
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, [dispatch]);
   return (
     <Wraper>
       <Routes>

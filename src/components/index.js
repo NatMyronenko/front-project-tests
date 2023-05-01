@@ -3,7 +3,7 @@ export * from './Container/Container.styled';
 export * from './LoginForm/LoginForm';
 export * from './Logo/Logo';
 export * from './Menu/Menu';
-export * from './Modal/Modal';
+export * from './ModalUserLogOut/ModalUserLogOut';
 export * from './Section/Section';
 export * from './SignUpForm/SignUpForm';
 export * from './Wraper/Wraper.styled';

@@ -1,4 +1,4 @@
-import { Button, Flex, Stack, Text, Icon, Box } from '@chakra-ui/react';
+import { Flex, Stack, Text, Icon, Box } from '@chakra-ui/react';
 import { CustomButton, Section } from 'components';
 import arrowSvg from 'img/sprite.svg';
 
@@ -120,33 +120,9 @@ export const ResultsPage = () => {
             >
               <use href={arrowSvg + '#icon-bigArrow'}></use>
             </Icon>
-            <Button
-              bg="green.400"
-              py="11px"
-              minW="113px"
-              minH="45px"
-              fontSize="20px"
-              fontWeight="700"
-              lineHeight="base"
-              color="white"
-              borderRadius="5px"
-              boxShadow="3px 3px 4px rgba(137, 150, 183, 0.2);"
-              transition=" background-color .2s ease-in-out"
-              _hover={{
-                bg: 'green.700',
-                boxShadow: ' 3px 3px 4px rgba(137, 150, 183, 0.2)',
-              }}
-              _focus={{
-                bg: 'green.700',
-                boxShadow: ' 3px 3px 4px rgba(137, 150, 183, 0.2)',
-              }}
-              _active={{
-                bg: 'green.700',
-                boxShadow: 'inset 4px 4px 4px #2E7E33;',
-              }}
-            >
-              Try again
-            </Button>
+            <CustomButton disabled={false} variant="pink">
+              Try Again
+            </CustomButton>
           </Box>
           <Box>
             <CustomButton disabled={false}>Finish</CustomButton>

@@ -35,4 +35,36 @@ export const logInUser = createAsyncThunk(
   }
 );
 
+export const fetchUser = createAsyncThunk(
+  'user/fetchUser',
+  async (_, { rejectWithValue, getState }) => {
+    const state = getState();
+    const persistedToken = state.user.token;
+
+    if (persistedToken === null) {
+      return rejectWithValue('Unable to fetch user');
+    }
+    try {
+      token.set(persistedToken);
+      const response = await axios.get(`/users/current`);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const logOutUser = createAsyncThunk(
+  'user/logOutUser',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`/users/logout`);
+      token.unset();
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
 // ira.gricnko@gmail.com

@@ -20,11 +20,18 @@ export const theme = extendTheme({
       900: '#ff0000',
     },
     green: {
+      100: '#CDD3CE',
       400: '#3FAD47',
       700: '#26992E',
     },
     pink: {
       400: '#E0729B',
+      700: '#FA4F8F',
+    },
+    yellow: {
+      100: '#CDD3CE',
+      400: '#E0B346',
+      700: '#EAAE1E',
     },
   },
   fonts: {

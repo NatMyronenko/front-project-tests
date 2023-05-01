@@ -1,9 +1,10 @@
-import { Box, Button, Stack, Text } from '@chakra-ui/react';
+import { Box, Stack, Text } from '@chakra-ui/react';
 import React, { useEffect, createRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
 import { logOutUser } from 'redux/user/operations/operations';
 import { IoMdAlert } from 'react-icons/io';
+import { CustomButton } from 'components/CustomButton/CustomButton';
 
 const MODAL_ROOT = document.querySelector('#modal-root');
 
@@ -30,8 +31,6 @@ export const ModalUserLogOut = ({ onClose }) => {
   return createPortal(
     <>
       <Box
-        ref={modalRef}
-        onClick={handleBackdropClick}
         position="fixed"
         top={0}
         left={0}
@@ -39,6 +38,8 @@ export const ModalUserLogOut = ({ onClose }) => {
         h="100vh"
         background="rgba(217, 217, 217, 0.69)"
         zIndex={1200}
+        ref={modalRef}
+        onClick={handleBackdropClick}
       >
         <Box
           position="absolute"
@@ -82,24 +83,25 @@ export const ModalUserLogOut = ({ onClose }) => {
               align="center"
               justifyContent="center"
             >
-              <Button
-                color="white"
-                backgroundColor="#E0729B"
+              <CustomButton
+                variant="pink"
+                disabled={false}
                 onClick={() => {
                   dispatch(logOutUser());
                 }}
               >
                 Sign Out
-              </Button>
-              <Button
-                color="white"
-                backgroundColor="#3FAD47"
+              </CustomButton>
+
+              <CustomButton
+                disabled={false}
+                variant="green"
                 onClick={() => {
                   onClose();
                 }}
               >
                 Cancel
-              </Button>
+              </CustomButton>
             </Stack>
           </Box>
         </Box>

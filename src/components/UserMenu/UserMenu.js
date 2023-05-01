@@ -1,8 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Box, Flex, IconButton } from '@chakra-ui/react';
 import { IoPersonCircleSharp } from 'react-icons/io5';
-//import LogOutSvg from 'img/sprite.svg';
-// import { logOutUser } from 'redux/user/operations/operations';
 import { FiLogOut } from 'react-icons/fi';
 import { selectUser } from 'redux/user/slice/slice';
 import { Link } from 'react-router-dom';
@@ -50,16 +48,13 @@ export const UserMenu = () => {
           color: 'blue.700',
           boxShadow: 'inset 4px 4px 4px rgba(49, 77, 147, 0.8);',
         }}
-        // onClick={() => dispatch(logOutUser())}
         onClick={() => {
           setIsModalOpen(true);
         }}
         icon={<FiLogOut />}
       />
 
-      {isModalOpen && (
-        <ModalUserLogOut onClose={handleToogleModal} formType="user-logOut" />
-      )}
+      {isModalOpen && <ModalUserLogOut onClose={handleToogleModal} />}
     </Flex>
   );
 };

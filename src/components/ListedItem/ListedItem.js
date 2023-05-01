@@ -3,7 +3,7 @@ import { ListItem, Icon, Box, Text, Button } from '@chakra-ui/react';
 import * as Fa from 'react-icons/fa';
 import * as Si from 'react-icons/si';
 
-import { SelectItem } from 'components';
+import { CustomButton, SelectItem } from 'components';
 import { ModalAttempts } from 'components/ModalAttempts/ModalAttempts';
 
 const Icons = {
@@ -65,7 +65,10 @@ export const ListedItem = ({ language, id, icon }) => {
           key={id}
           setSelectedOption={setSelectedOption}
         />
-        <Button
+        <CustomButton disabled={!selectedOption} variant="green">
+          Test now
+        </CustomButton>
+        {/*<Button
           type="button"
           bg="green.700"
           minW="113px"
@@ -92,7 +95,7 @@ export const ListedItem = ({ language, id, icon }) => {
           _disabled={{ bg: '#CDD3CE', pointerEvents: 'none' }}
         >
           Test now
-        </Button>
+        </Button>*/}
       </Box>
       {selectedOption?.description && (
         <Text fontSize="12px" lineHeight="1.15" color="blue.400" mt="6px">

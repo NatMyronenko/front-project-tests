@@ -17,7 +17,9 @@ export const ResultsPage = () => {
   const navigate = useNavigate();
   const score = useSelector(selectScore);
   const questionsLength = useSelector(selectQuestions).length;
-  const testResult = (Number(score) * 100) / Number(questionsLength);
+  const testResult = Math.round(
+    (Number(score) * 100) / Number(questionsLength)
+  );
 
   useEffect(() => {
     const currentLocation = window.location.pathname;

@@ -111,6 +111,28 @@ const questions = [
       },
     ],
   },
+  {
+    id: nanoid(),
+    question: 'What is the value of initialized, but not declared variable?',
+    options: [
+      {
+        text: 'null',
+        isCorrect: false,
+      },
+      {
+        text: `''`,
+        isCorrect: false,
+      },
+      {
+        text: 'undefined',
+        isCorrect: true,
+      },
+      {
+        text: 'Error: variable must be declared.',
+        isCorrect: false,
+      },
+    ],
+  },
 ];
 
 export default questions;

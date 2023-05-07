@@ -37,8 +37,8 @@ export const UserMenu = () => {
         h="32px"
         variant="outline"
         _hover={{
-          color: 'blue.700',
-          boxShadow: ' 3px 3px 4px rgba(137, 150, 183, 0.2)',
+          color: '#4270E8',
+          filter: 'drop-shadow(3px 3px 4px rgba(137, 150, 183, 0.2))',
         }}
         _focus={{
           color: 'blue.700',

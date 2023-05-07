@@ -14,3 +14,4 @@ export * from './ListedItem/ListedItem';
 export * from './Answer/Answer';
 export * from './InputBox/InputBox';
 export * from './customTooltip/CustomTooltip';
+export * from './CustomInput/CustomInput';

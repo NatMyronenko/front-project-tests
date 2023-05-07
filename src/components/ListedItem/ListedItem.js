@@ -5,6 +5,7 @@ import * as Si from 'react-icons/si';
 
 import { CustomButton, SelectItem } from 'components';
 import { ModalAttempts } from 'components/ModalAttempts/ModalAttempts';
+import { useNavigate } from 'react-router-dom';
 
 const Icons = {
   Fa,
@@ -13,6 +14,7 @@ const Icons = {
 export const ListedItem = ({ language, id, icon }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
   const handleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -65,37 +67,15 @@ export const ListedItem = ({ language, id, icon }) => {
           key={id}
           setSelectedOption={setSelectedOption}
         />
-        <CustomButton disabled={!selectedOption} variant="green">
-          Test now
-        </CustomButton>
-        {/*<Button
-          type="button"
-          bg="green.700"
-          minW="113px"
-          minH="45px"
-          fontSize="20px"
-          fontWeight="400"
-          lineHeight="base"
-          color="white"
-          borderRadius="5px"
-          boxShadow="3px 3px 4px rgba(137, 150, 183, 0.2)"
-          isDisabled={!selectedOption}
-          _hover={{
-            bg: 'green.400',
-            boxShadow: ' 3px 3px 4px rgba(137, 150, 183, 0.2)',
+        <CustomButton
+          disabled={!selectedOption}
+          variant="green"
+          onClick={() => {
+            navigate('/questions');
           }}
-          _focus={{
-            bg: 'green.400',
-            boxShadow: ' 3px 3px 4px rgba(137, 150, 183, 0.2)',
-          }}
-          _active={{
-            bg: 'green.400',
-            boxShadow: 'inset 4px 4px 4px #2E7E33;',
-          }}
-          _disabled={{ bg: '#CDD3CE', pointerEvents: 'none' }}
         >
           Test now
-        </Button>*/}
+        </CustomButton>
       </Box>
       {selectedOption?.description && (
         <Text fontSize="12px" lineHeight="1.15" color="blue.400" mt="6px">

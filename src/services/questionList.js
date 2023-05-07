@@ -1,20 +1,114 @@
+import { nanoid } from '@reduxjs/toolkit';
+
 const questions = [
   {
-    question: 'example text question',
+    id: nanoid(),
+    question: 'What is the scope of a variable declared with the let keyword?',
     options: [
-      { text: 'text answer A', isCorrect: false },
-      { text: 'text answer B', isCorrect: false },
-      { text: 'text answer C', isCorrect: false },
-      { text: 'text answer D', isCorrect: true },
+      {
+        text: 'A function that takes another function as an argument or returns a function as its result',
+        isCorrect: true,
+      },
+      {
+        text: 'A function that is defined inside another function',
+        isCorrect: false,
+      },
+      {
+        text: 'A function that can only be called by another function',
+        isCorrect: false,
+      },
+      {
+        text: 'A function that is used to manipulate arrays',
+        isCorrect: false,
+      },
     ],
   },
   {
-    question: 'example text question123',
+    id: nanoid(),
+    question: 'What is a higher-order function in JavaScript?',
     options: [
-      { text: 'text answer A1', isCorrect: false },
-      { text: 'text answer B2', isCorrect: false },
-      { text: 'text answer C3', isCorrect: false },
-      { text: 'text answer D4', isCorrect: true },
+      {
+        text: 'The process of hiding implementation details from the user',
+        isCorrect: true,
+      },
+      {
+        text: 'The process of extending a class to create a new class',
+        isCorrect: false,
+      },
+      {
+        text: 'The process of creating an instance of a class',
+        isCorrect: false,
+      },
+      {
+        text: 'The process of modifying the behavior of a superclass in a subclass',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    id: nanoid(),
+    question: 'Which statement is TRUE?',
+    options: [
+      {
+        text: '[]==[]',
+        isCorrect: false,
+      },
+      {
+        text: '{}==={}',
+        isCorrect: false,
+      },
+      {
+        text: 'null == undefined',
+        isCorrect: true,
+      },
+      {
+        text: 'NaN === NaN',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    id: nanoid(),
+    question: 'How do you access a property of an object in JavaScript?',
+    options: [
+      {
+        text: 'dot notation (.)',
+        isCorrect: false,
+      },
+      {
+        text: 'bracket notation ([])',
+        isCorrect: false,
+      },
+      {
+        text: 'both A and B (Correct)',
+        isCorrect: true,
+      },
+      {
+        text: 'neither A nor B.',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    id: nanoid(),
+    question: 'What is the difference between window and document?',
+    options: [
+      {
+        text: 'Window - is the root level element in any web page. Document - is the direct child of the window object.',
+        isCorrect: true,
+      },
+      {
+        text: 'Window - provides methods like getElementById, createElement. Document - has methods like alert(), confirm()',
+        isCorrect: false,
+      },
+      {
+        text: 'Window  - is the direct child of the document object.  Document - is the root level element in any web page.',
+        isCorrect: false,
+      },
+      {
+        text: 'Window - has methods like alert(), confirm(). Document -  provides methods like getElementById, createElement.',
+        isCorrect: true,
+      },
     ],
   },
 ];

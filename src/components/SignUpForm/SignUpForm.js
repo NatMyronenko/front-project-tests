@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import {
   InputGroup,
@@ -20,6 +20,8 @@ import {
   validatePassword,
 } from 'services';
 import { signUpUser } from 'redux/user/operations/operations';
+import { selectIsLoggedIn } from 'redux/user/slice/slice';
+import { useNavigate } from 'react-router-dom';
 
 export const SignUpForm = ({ isOnLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -30,6 +32,15 @@ export const SignUpForm = ({ isOnLogin }) => {
     password: false,
   });
   const dispatch = useDispatch();
+
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/welcome');
+    }
+  }, [isLoggedIn, navigate]);
+
   const handleTogglePassword = () => setShowPassword(!showPassword);
 
   const formik = useFormik({

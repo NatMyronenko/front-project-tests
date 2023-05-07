@@ -11,6 +11,7 @@ import {
 } from 'redux-persist';
 import { userSlice } from './user/slice/slice';
 import storage from 'redux-persist/lib/storage';
+import { quizSlice } from './questions/slice/slice';
 
 const persistConfig = {
   key: 'user',
@@ -22,7 +23,7 @@ const persistedReducer = persistReducer(persistConfig, userSlice.reducer);
 export const store = configureStore({
   reducer: {
     user: persistedReducer,
-    // questions: questionSlice.reducer,
+    questions: quizSlice.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

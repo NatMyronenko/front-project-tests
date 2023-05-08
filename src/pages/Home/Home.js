@@ -51,15 +51,6 @@ export const Home = () => {
             tests. You can easily check how much you know and prepare for a
             successful job interview.
           </Text>
-          <Link
-            to="/results"
-            style={{
-              backgroundColor: 'red',
-            }}
-          >
-            {' '}
-            go to results
-          </Link>
         </Flex>
 
         {isOnLogin ? (

@@ -3,6 +3,7 @@ import questionsDB from 'services/questionList';
 
 const initialState = {
   questions: questionsDB,
+
   score: 0,
 };
 

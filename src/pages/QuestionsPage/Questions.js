@@ -77,11 +77,12 @@ export const Questions = () => {
         color="blue.400"
         fontWeight={400}
         fontSize="22px"
+        mb="25px"
       >
-        Welcome to the{' '}
-        <Text as="span" fontWeight={700}>
+        Welcome to the
+        <Text as="span" fontWeight={700} px={1}>
           Java Core
-        </Text>{' '}
+        </Text>
         test!
       </Heading>
       <VStack
@@ -147,9 +148,9 @@ export const Questions = () => {
           ))}
         </List>
       </VStack>
-      <Box textAlign="right" maxWidth="68.5%" mx="auto">
+      <Box textAlign="right" maxWidth="68.5%" mx="auto" pb="100px">
         <CustomButton
-          variant="yellow"
+          variant={isLastQuestion ? 'yellow' : 'green'}
           disabled={selectedAnswers.length === 0}
           onClick={handleNextQuestion}
         >

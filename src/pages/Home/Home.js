@@ -1,7 +1,6 @@
 import { Flex, Text, Box } from '@chakra-ui/react';
 import { Section, Metrics, SignUpForm, LoginForm } from 'components';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 export const Home = () => {
   const [isOnLogin, setIsOnLogin] = useState(false);

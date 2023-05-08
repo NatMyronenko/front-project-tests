@@ -8,6 +8,7 @@ export const theme = extendTheme({
       50: '#f7fafc',
       100: '#C6D1ED',
       400: '#5c81e1',
+      600: '#202F53',
       700: '#1F4AB8',
       900: '#111f42',
     },
@@ -26,7 +27,7 @@ export const theme = extendTheme({
     },
     pink: {
       400: '#E0729B',
-      700: '#FA4F8F',
+      700: '#E0578A',
     },
     yellow: {
       100: '#CDD3CE',

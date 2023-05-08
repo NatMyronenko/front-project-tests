@@ -27,7 +27,7 @@ export const CustomButton = ({
       disabledColor: '#CDD3CE',
       bgColor: 'pink.400',
       hoverColor: 'pink.700',
-      pressedBoxShadow: 'inset 4px 4px 4px #2E7E33',
+      pressedBoxShadow: 'inset 4px 4px 4px #B7577B',
     },
     yellow: {
       disabledColor: 'yellow.100',

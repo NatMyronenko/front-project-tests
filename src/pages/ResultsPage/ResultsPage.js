@@ -1,11 +1,44 @@
 import { Flex, Stack, Text, Icon, Box } from '@chakra-ui/react';
 import { CustomButton, Section } from 'components';
 import arrowSvg from 'img/sprite.svg';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import {
+  resetQuiz,
+  selectQuestions,
+  selectScore,
+} from 'redux/questions/slice/slice';
 
-const testScore = 60;
 const percentCorrectAnswers = 80;
 
 export const ResultsPage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const score = useSelector(selectScore);
+  const questionsLength = useSelector(selectQuestions).length;
+  const testResult = Math.round(
+    (Number(score) * 100) / Number(questionsLength)
+  );
+
+  useEffect(() => {
+    const currentLocation = window.location.pathname;
+
+    window.addEventListener('popstate', () => {
+      if (currentLocation === '/front-project-tests/results') {
+        navigate('/welcome');
+      }
+    });
+
+    return () => {
+      window.removeEventListener('popstate', () => {
+        if (currentLocation === '/front-project-tests/results') {
+          navigate('/welcome');
+        }
+      });
+    };
+  }, [navigate]);
+
   return (
     <Section>
       <Stack textAlign="center" pt="80px" spacing="30px" alignItems="center">
@@ -17,7 +50,7 @@ export const ResultsPage = () => {
         >
           Test finished!
         </Text>
-        {testScore > percentCorrectAnswers ? (
+        {testResult > percentCorrectAnswers ? (
           <>
             <Text
               color="green.700"
@@ -43,7 +76,7 @@ export const ResultsPage = () => {
                 lineHeight="36px"
               >
                 {' '}
-                {testScore}{' '}
+                {testResult}{' '}
               </Text>
               points out of
               <Text
@@ -87,7 +120,7 @@ export const ResultsPage = () => {
                 lineHeight="36px"
               >
                 {' '}
-                {testScore}{' '}
+                {testResult}{' '}
               </Text>
               points out of
               <Text
@@ -120,12 +153,27 @@ export const ResultsPage = () => {
             >
               <use href={arrowSvg + '#icon-bigArrow'}></use>
             </Icon>
-            <CustomButton disabled={false} variant="pink">
+            <CustomButton
+              disabled={false}
+              variant="pink"
+              onClick={() => {
+                dispatch(resetQuiz());
+                navigate('/questions');
+              }}
+            >
               Try Again
             </CustomButton>
           </Box>
           <Box>
-            <CustomButton disabled={false}>Finish</CustomButton>
+            <CustomButton
+              disabled={false}
+              onClick={() => {
+                dispatch(resetQuiz());
+                navigate('/welcome');
+              }}
+            >
+              Finish
+            </CustomButton>
             <Icon
               ml="22px"
               width="66.5px"

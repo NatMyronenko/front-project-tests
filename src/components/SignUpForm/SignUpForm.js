@@ -85,7 +85,8 @@ export const SignUpForm = ({ isOnLogin }) => {
     onSubmit: values => {
       dispatch(
         signUpUser({
-          name: values.firstName + ' ' + values.lastName,
+          firstName: values.firstName,
+          lastName: values.lastName,
           email: values.email,
           password: values.password,
         })

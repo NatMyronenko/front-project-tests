@@ -8,7 +8,8 @@ import {
 
 const initialState = {
   user: {
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
   },
   error: '',
@@ -22,8 +23,7 @@ export const userSlice = createSlice({
   initialState,
   extraReducers: {
     [signUpUser.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
+      state.user = action.payload;
       state.isLoggedIn = true;
     },
     [logInUser.fulfilled](state, action) {
@@ -32,7 +32,7 @@ export const userSlice = createSlice({
       state.isLoggedIn = true;
     },
     [logOutUser.fulfilled](state) {
-      state.user = { name: '', email: '' };
+      state.user = { firstName: '', lastName: '', email: '' };
       state.token = null;
       state.isLoggedIn = false;
     },
@@ -40,7 +40,7 @@ export const userSlice = createSlice({
       state.isRefreshing = true;
     },
     [fetchUser.fulfilled](state, action) {
-      state.user = action.payload;
+      state.user.user = action.payload;
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },

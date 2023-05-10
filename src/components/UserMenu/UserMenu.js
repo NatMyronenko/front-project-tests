@@ -27,7 +27,8 @@ export const UserMenu = () => {
         }}
       >
         <Link style={{ display: 'flex' }} to="/account">
-          Hello, <Flex fontWeight="bold">{user.name}</Flex>
+          Hello,{' '}
+          <Flex fontWeight="bold">{user.firstName + ' ' + user.lastName}</Flex>
         </Link>
       </Box>
 
